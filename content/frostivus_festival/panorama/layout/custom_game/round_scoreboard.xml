@@ -1,0 +1,25 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/round_scoreboard.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/round_scoreboard.js" />
+	</scripts>
+	<Panel class="RoundScoreboard" hittest="false">
+		<Panel id="ScoreboardContainer">
+			<Panel class="Legend">
+				<Label id="ScoreCol_PlayerInfo" text="Player" />
+				<Label id="ScoreCol_Score" text="Score" />
+				<!-- <Label id="ScoreCol_Time" text="Time" /> -->
+			</Panel>
+			<Panel id="PlayersContainer">
+				<!-- <Panel class="PlayerRowContainer">
+					<Label id="Player" text="VicFrank" />
+					<Label id="Score" text="5" />
+				</Panel> -->
+			</Panel>
+		</Panel>
+	</Panel>
+</root>
+

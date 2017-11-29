@@ -1,0 +1,300 @@
+.CustomHudRoot
+{
+    width: 100%;
+    height: 100%;
+}
+
+.CustomHudContents
+{
+    width: 100%;
+    height: 100%;
+}
+
+#HoldoutState
+{
+	width: 700px;
+	height: 200px;
+	margin-left: 352px;
+}
+
+.AspectRatio16x10 #HoldoutState
+{
+	margin-left: 756px;
+}
+.AspectRatio4x3 #HoldoutState
+{
+	margin-left: 610px;
+}
+.AspectRatio5x4 #HoldoutState
+{
+	margin-left: 566px;
+}
+
+#RoundNumberContainer
+{
+	background-image: url("s2r://panorama/images/roundnumber_bg_psd.vtex");
+	background-size: 100%;
+	width: 66px;
+	height: 58px;
+	flow-children: down;
+}
+
+#Round
+{
+	margin-top: 1px;
+	horizontal-align: center;
+	color: #EB503C;
+}
+
+#RoundNumber
+{
+	horizontal-align: center;
+	text-align: center;
+	width: 48px;
+	height: 48px;
+	font-size: 32px;
+	font-weight: normal;
+	padding-top: 0px;
+	margin-top: -2px;
+	margin-left: 4.5px;
+	z-index: -1;
+	color: #F79238;
+}
+.HoldoutLabelSmall,
+.HoldoutLabelLarge,
+.HoldoutLabelHeader
+{
+	color: white;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 2px 2.0 #00000011;
+
+    font-family: Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    font-size: 14px;
+    letter-spacing: 2px;
+    /*text-overflow: clip;*/
+	margin-bottom: -3px;
+}
+
+.HoldoutLabelSmall.Header
+{
+	width: 95px;
+}
+
+.HoldoutLabelLarge
+{
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+
+.HoldoutLabelHeader
+{
+	font-size: 36px;
+}
+
+#RoundStartPanel
+{
+	height: 160px;
+	width: 800px;
+
+	horizontal-align: middle;
+	vertical-align: top;
+
+	margin-top: 60px;
+
+	visibility: collapse;
+}
+
+#RoundStartLabels
+{
+	width: 100%;
+	height: 100%;
+	flow-children: down;
+	margin-left: 180px;
+}
+
+#RoundStartStrip
+{
+	width: 0px;
+	height: 84px;
+	horizontal-align: center;
+	vertical-align: top;
+	border-radius: 12px;
+	border-bottom-right-radius: 50px;
+	border-bottom-left-radius: 50px;
+	margin-top: 26px;
+	border: 3px solid black;
+	pre-transform-scale2d: 0.8;
+	background-color: #83C2FE;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #42153Bee ), color-stop( 0.6, #974061ee ), color-stop( 0.8, #974061ee ), to( #42153Bee ) );
+	
+	transition-property: width, pre-transform-scale2d, opacity;
+	transition-duration: .32s;
+	transition-timing-function: ease-in-out;
+}
+
+#RoundStartPanel.Visible #RoundStartStrip
+{
+	width: 800px;
+	pre-transform-scale2d: 1;
+	transition-delay: .12s;
+}
+
+#RoundStartPanel.Visible
+{
+	visibility: visible;
+}
+
+#RoundStartLabel,
+#RoundNameLabel
+{
+	horizontal-align: left;
+	vertical-align: center;
+	text-align: center;
+	
+	transition-property: pre-transform-scale2d, opacity, color, transform;
+	transition-duration: .22s;
+	transition-delay: .12s;
+	transition-timing-function: ease-out;	
+}
+
+#RoundStartLabel
+{
+	pre-transform-scale2d: .2;
+	opacity: 0;
+	font-weight: black;
+	font-size: 52px;
+	height: 72px;
+	transform: rotateX(-60deg) scaleY(1.8);	
+	color: #F6AC34;
+	color:  gradient( linear, 0% 0%, 0% 100%, from( #F6AC34 ), color-stop( 0.2, #F6AC34 ), to( #974061 ) );
+	text-shadow: 0px 6px 0px 2.0 #000000;
+}
+
+#RoundStartPanel.Visible #RoundStartLabel
+{
+	opacity: 1;
+	pre-transform-scale2d: 1;
+	transition-delay: 0s;
+}
+
+#RoundNameLabel
+{
+	opacity: 0;
+	color: red;
+	transform: translateX( -100px );
+	font-weight: thin;
+	font-style: italics;
+	margin-top: -72px;
+	text-shadow: 0px 2px 0px 3.0 #000000;
+}
+
+#RoundStartPanel.Visible #RoundNameLabel
+{
+	opacity: 1;
+	color: white;
+	transform: translateX( 0px );
+	transition-delay: 0s;
+}
+
+#RoundArt
+{
+	background-image: url("s2r://panorama/images/art_round1_psd.vtex");
+    background-size: cover;
+	width: 156px;
+	height: 156px;
+	margin-top: -20px;
+	margin-left: 16px;
+	opacity: 0;
+	pre-transform-scale2d: .2;
+	
+	transition-property: width, pre-transform-scale2d, opacity;
+	transition-duration: .32s;
+	transition-timing-function: ease-in-out;	
+}
+
+#RoundStartPanel.Visible #RoundArt
+{
+	opacity: 1;
+	pre-transform-scale2d: 1;
+}
+
+
+/*.Round1 #RoundArt { background-image: url("s2r://panorama/images/art_round1_psd.vtex"); }
+.Round2 #RoundArt { background-image: url("s2r://panorama/images/art_round2_psd.vtex"); }
+.Round3 #RoundArt { background-image: url("s2r://panorama/images/art_round3_psd.vtex"); }
+.Round4 #RoundArt { background-image: url("s2r://panorama/images/art_round4_psd.vtex"); }
+
+.Round5 #RoundArt { background-image: url("s2r://panorama/images/art_round_bonus_psd.vtex"); }
+
+.Round6 #RoundArt { background-image: url("s2r://panorama/images/art_round6_psd.vtex"); }
+.Round7 #RoundArt { background-image: url("s2r://panorama/images/art_round7_psd.vtex"); }
+.Round8 #RoundArt { background-image: url("s2r://panorama/images/art_round8_psd.vtex"); }
+.Round9 #RoundArt { background-image: url("s2r://panorama/images/art_round9_psd.vtex"); }
+
+.Round10 #RoundArt { background-image: url("s2r://panorama/images/art_round_bonus2_psd.vtex"); }
+
+.Round11 #RoundArt { background-image: url("s2r://panorama/images/art_round11_psd.vtex"); }
+.Round12 #RoundArt { background-image: url("s2r://panorama/images/art_round12_psd.vtex"); }
+.Round13 #RoundArt { background-image: url("s2r://panorama/images/art_round13_psd.vtex"); }
+.Round14 #RoundArt { background-image: url("s2r://panorama/images/art_round14_psd.vtex"); }
+.Round15 #RoundArt { background-image: url("s2r://panorama/images/art_round15_psd.vtex"); }*/
+
+.RoundDescriptionPanel
+{
+	horizontal-align: left;
+    vertical-align: top;
+    margin-top: 180px;
+    margin-left: 20px;
+    flow-children: down;
+}
+
+.Description
+{
+    flow-children: right;
+}
+
+#RoundNameLeftLabel
+{
+    color: gradient( linear, 0% 0%, 0% 100%, from( #E7D291 ), to( #965D01 ) );
+	
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0px 0px 2px 2.5 black;
+    text-transform: uppercase;
+
+    font-family: Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    font-size: 24px;
+
+	margin-bottom: 4px;    
+}
+
+#RoundDescriptionLabel
+{
+	color: #A5ACCB;
+	
+	margin-left: 4px;
+	max-width: 300px;
+
+	text-align: left;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px 2 black;
+
+	background-color: #0d1c22ff, gradient( radial, 100% -0%, 100px -40px, 320% 270%, from( #3a464bff ), color-stop( 0.23, #0d1c22ff ), to( #0d1c22ff ) );
+	border: 5px solid #0d1c22ff;
+    border-radius: 8px;
+
+    opacity: .9;
+}
+
+.QuestIcon
+{
+    width: 32px;
+    height: 32px;
+    background-size: 100%;
+}
+
+.QuestIcon.Holdout
+{
+    background-image: url("s2r://panorama/images/interface/quest_holdout_empty_psd.vtex");
+}

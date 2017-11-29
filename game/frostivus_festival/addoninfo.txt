@@ -1,0 +1,8 @@
+"AddonInfo"
+{
+	"TeamCount"		"8"
+	"frostivus_festival"
+	{
+		"MaxPlayers"		"8"
+	}
+}
