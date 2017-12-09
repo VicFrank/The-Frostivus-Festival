@@ -29,7 +29,7 @@ function SpiritBreakerGame:GameStart()
 	_G.GameMode.OnEntityKilled = function (empty, keys)
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )
 		if killedUnit:GetUnitName() == "npc_dota_hero_spirit_breaker" then
-			self:AddLoser(killedUnit:GetPlayerOwnerID())
+			self:AddLoser(killedUnit:GetPlayerID())
 			-- If everyone is dead, end the round
 			self:CheckForLoneSurvivor()
 		end

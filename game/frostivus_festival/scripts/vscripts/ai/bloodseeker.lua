@@ -17,7 +17,7 @@ function AIThink()
 end
 
 function CastRupture()
-	local duration = RandomFloat(.6, 6)
+	local duration = RandomFloat(.5, 5)
 	thisEntity.ruptureDuration = duration
 
 	thisEntity:CastAbilityOnPosition(thisEntity.castPosition, thisEntity.rupture, -1)

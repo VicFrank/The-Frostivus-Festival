@@ -151,8 +151,7 @@ function GameMode:CreateHeroesForRound(miniGameHeroTable)
 end
 
 function GameMode:SwapHero(hero, newHeroName)
-	local player = hero:GetPlayerOwner()
-	local playerID = player:GetPlayerID()
+	local playerID = hero:GetPlayerID()
 	local team = PlayerResource:GetTeam(playerID)
 
 	local unit = PlayerResource:ReplaceHeroWith(playerID, newHeroName, 0, 0)
@@ -187,12 +186,14 @@ end
 function GameMode:StartBattleMusic()
     for _,hero in pairs(GameMode.heroList) do
         local player = hero:GetPlayerOwner()
-        player:SetMusicStatus(DOTA_MUSIC_STATUS_EXPLORATION, .5)
+        if player then
+        	player:SetMusicStatus(DOTA_MUSIC_STATUS_EXPLORATION, .5)
+        end
     end
 end
 
 function GameMode:CenterCameraOnHero(hero)
-	local playerID = hero:GetPlayerOwnerID()	
+	local playerID = hero:GetPlayerID()	
 	PlayerResource:SetCameraTarget(playerID, hero)
 
 	Timers:CreateTimer(0.1, function()

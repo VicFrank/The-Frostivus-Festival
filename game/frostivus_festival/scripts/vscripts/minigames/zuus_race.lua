@@ -70,7 +70,7 @@ function ZuusRaceGame:GameStart()
 		if not self.isRunning then return end
 		for _,hero in pairs(_G.GameMode.heroList) do
 			if not hero.winner and hero:GetAbsOrigin().x > vRaceRight.x then
-				self:AddWinner(hero:GetPlayerOwnerID())
+				self:AddWinner(hero:GetPlayerID())
 				--move the winner to the right a bit and stun them while they wait
 				--also might want to consider turn them so they face left
 				local distance = 200

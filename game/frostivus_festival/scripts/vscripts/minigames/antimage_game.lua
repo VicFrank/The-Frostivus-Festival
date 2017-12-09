@@ -72,7 +72,7 @@ function AntimageGame:GameStart()
 	_G.GameMode.OnEntityKilled = function (empty, keys)
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )
 		if killedUnit:IsRealHero() then
-			self:AddLoser(killedUnit:GetPlayerOwnerID())
+			self:AddLoser(killedUnit:GetPlayerID())
 			self:CheckForLoneSurvivor()
 		end
 	end

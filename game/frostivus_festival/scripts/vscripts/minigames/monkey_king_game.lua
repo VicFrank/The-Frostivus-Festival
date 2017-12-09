@@ -246,7 +246,7 @@ end
 
 -- 	-- Respawn all players who haven't been eliminated yet
 -- 	_G.GameMode:DoToAllHeroes(function(hero)		
--- 		if self:PlayerNotEliminated(hero:GetPlayerOwnerID()) then
+-- 		if self:PlayerNotEliminated(hero:GetPlayerID()) then
 -- 			hero:RespawnHero(false, false)
 -- 			FindClearSpaceForUnit(hero, hero.spawnLocation, false)
 -- 			hero:AddNewModifier(unit, nil, "modifier_stunned_lua", {duration = 5})
@@ -319,7 +319,7 @@ end
 -- 	-- Kill everyone still alive and have them tie for last
 -- 	local playerIDs = {}
 -- 	for _,hero in pairs(_G.GameMode.heroList) do
--- 		table.insert(playerIDs, hero:GetPlayerOwnerID())
+-- 		table.insert(playerIDs, hero:GetPlayerID())
 -- 		hero:ForceKill(false)
 -- 	end
 -- 	self:AddGroupOfLosers(playerIDs)

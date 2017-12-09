@@ -25,8 +25,9 @@ function aoe_rupture_lua:OnSpellStart()
                                           FIND_ANY_ORDER,
                                           false)
 
-        for _,enemy in pairs(enemies) do
-            EmitSoundOn(sound_hit, enemy)
+        -- This is too loud if we do it on every unit hit
+        EmitSoundOn(sound_hit, caster)
+        for _,enemy in pairs(enemies) do            
             enemy:AddNewModifier(caster, ability, "modifier_rupture_damage", {duration = caster.ruptureDuration})
             enemy:AddNewModifier(caster, ability, "modifier_aoe_rupture_lua", {})
         end

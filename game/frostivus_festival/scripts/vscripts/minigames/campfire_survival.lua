@@ -28,7 +28,9 @@ function CampfireSurvivalGame:GameStart()
 	_G.GameMode:DoToAllHeroes(function(hero)
 		hero:AddNewModifier(weatherDummy, weatherAbility, "modifier_weather_snowstorm", {} )
 		local player = hero:GetPlayerOwner()
-        player:SetMusicStatus(DOTA_MUSIC_STATUS_EXPLORATION, 1)
+		if player then
+        	player:SetMusicStatus(DOTA_MUSIC_STATUS_EXPLORATION, 1)
+        end
 	end)
 
 	local spawnDelay = 1
@@ -43,7 +45,7 @@ function CampfireSurvivalGame:GameStart()
 	_G.GameMode.OnEntityKilled = function (empty, keys)
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )
 		if killedUnit:GetUnitName() == "npc_dota_hero_ancient_apparition" then
-			self:AddLoser(killedUnit:GetPlayerOwnerID())
+			self:AddLoser(killedUnit:GetPlayerID())
 			self:CheckForLoneSurvivor()
 		end
 	end

@@ -58,7 +58,7 @@ function EarthSpiritGame:GameStart()
 			local goal = killedUnit.goal
 			goal:ForceKill(false)
 			goal:AddNoDraw()
-			self:AddLoser(killedUnit:GetPlayerOwnerID())
+			self:AddLoser(killedUnit:GetPlayerID())
 			self:CheckForLoneSurvivor()
 		end
 	end

@@ -65,13 +65,15 @@ function MiranaArrowGame:GameStart()
 				EmitSoundOn(sound, hurtUnit)
 				attacker:AddNewModifier(attacker, nil, "modifier_hidden_lua", {})
 				attacker:AddNoDraw()
-				self:AddWinner(attacker:GetPlayerOwnerID())
-				numWinners = numWinners + 1
-				if numWinners == numPlayers - 1 then
-					Timers:CreateTimer(3, function()
-						if not self.isRunning then return end
-						self:GameEnd()
-					end)
+				if attacker:IsRealHero() then
+					self:AddWinner(attacker:GetPlayerID())
+					numWinners = numWinners + 1
+					if numWinners == numPlayers - 1 then
+						Timers:CreateTimer(3, function()
+							if not self.isRunning then return end
+							self:GameEnd()
+						end)
+					end
 				end
 			end
 		end

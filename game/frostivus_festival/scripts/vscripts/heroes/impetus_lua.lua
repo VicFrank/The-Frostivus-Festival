@@ -43,4 +43,6 @@ function impetus_lua:OnProjectileHit(target, location)
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_CRITICAL, target, distance, nil)
     
     GameMode.currentGame:OnImpetusHit(caster, distance)
+
+    return true
 end

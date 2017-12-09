@@ -401,6 +401,7 @@ function _ScoreboardUpdater_UpdateAllTeamsAndPlayers( scoreboardConfig, teamsCon
 function ScoreboardUpdater_InitializeScoreboard( scoreboardConfig, scoreboardPanel )
 {
 	GameUI.CustomUIConfig().teamsPrevPlace = [];
+	GameUI.CustomUIConfig().scores == [];
 	if ( typeof(scoreboardConfig.shouldSort) === 'undefined')
 	{
 		// default to true
@@ -473,11 +474,16 @@ function GetPlayerIdFromTeam(teamId)
 
 function GetScoreForTeam(teamId)
 {
-	if (g_ScoreTable[teamId] == null)
+	// if (g_ScoreTable[teamId] == null)
+	// {
+	// 	return 0;
+	// }
+	// return g_ScoreTable[teamId];
+	if (GameUI.CustomUIConfig().scores == null || GameUI.CustomUIConfig().scores[teamId] == null)
 	{
 		return 0;
 	}
-	return g_ScoreTable[teamId];
+	return GameUI.CustomUIConfig().scores[teamId]
 }
 
 function OnScoreChange(event)
@@ -485,11 +491,18 @@ function OnScoreChange(event)
 	var teamId = event.team_id;
 	var score = event.team_score;
 
-	if (g_ScoreTable[teamId] == null)
+	if (GameUI.CustomUIConfig().scores == null)
 	{
-		g_ScoreTable[teamId] = 0
+		GameUI.CustomUIConfig().scores = [];
 	}
 
+	if (g_ScoreTable[teamId] == null)
+	{
+		GameUI.CustomUIConfig().scores[teamId] = 0;
+		g_ScoreTable[teamId] = 0;
+	}
+
+	GameUI.CustomUIConfig().scores[teamId] = score;
 	g_ScoreTable[teamId] = score;
 }
 

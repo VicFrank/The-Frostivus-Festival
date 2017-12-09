@@ -119,7 +119,8 @@ function GameMode:OnAllPlayersLoaded()
       if not IsInToolsMode() then
         GameMode:StartRandomGame()
       else
-        GameMode:StartGameByName('taunt_game')
+        -- GameMode:StartRandomGame()
+        GameMode:StartGameByName('zombie_game')
       end
     end)
 

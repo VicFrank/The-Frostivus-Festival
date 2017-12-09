@@ -33,21 +33,20 @@ require('minigames/timbersaw_game')
 
 
 tMINIGAME_INIT_TABLE = {
-	snowball_game = {
-		name = "Snowball",
-		description = "",
-		hero = {
-			heroName = "npc_dota_hero_tusk",
-			health = 100,
-			mana = 0,
-			abilities = {
-				"snowball_lua",
-				"test_ability",
-			},			
-		},
-		arena = "snow_medium",
-		game = SnowballGame:new{duration=-1},
-	},
+	-- snowball_game = {
+	-- 	name = "Snowball",
+	-- 	description = "",
+	-- 	hero = {
+	-- 		heroName = "npc_dota_hero_tusk",
+	-- 		health = 100,
+	-- 		mana = 0,
+	-- 		abilities = {
+	-- 			"snowball_lua",
+	-- 		},			
+	-- 	},
+	-- 	arena = "snow_medium",
+	-- 	game = SnowballGame:new{duration=-1},
+	-- },
 
 	taunt_game = {
 		name = "Suicidal Axe",

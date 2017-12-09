@@ -46,7 +46,7 @@ function TemplarGame:GameStart()
 	_G.GameMode.OnEntityKilled = function (empty, keys)
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )
 		if killedUnit:GetUnitName() == "npc_dota_hero_templar_assassin" then
-			self:AddLoser(killedUnit:GetPlayerOwnerID())
+			self:AddLoser(killedUnit:GetPlayerID())
 			self:CheckForLoneSurvivor()
 		end
 	end

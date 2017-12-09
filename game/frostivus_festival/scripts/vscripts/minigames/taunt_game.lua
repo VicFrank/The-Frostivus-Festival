@@ -30,7 +30,7 @@ function TauntGame:GameStart()
 	_G.GameMode.OnEntityKilled = function (empty, keys)
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )
 		if killedUnit:GetUnitName() == "npc_dota_hero_axe" then
-			self:AddWinner(killedUnit:GetPlayerOwnerID())
+			self:AddWinner(killedUnit:GetPlayerID())
 			self:CheckForLoneSurvivor()
 		end
 	end

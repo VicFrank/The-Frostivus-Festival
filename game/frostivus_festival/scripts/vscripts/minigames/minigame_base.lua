@@ -166,7 +166,7 @@ function MiniGame:CleanUp()
 	local playerIDs = {}
 	_G.GameMode:DoToAllHeroes(function(hero)
 		if TableFindKey(self.remainingTeams, hero:GetTeam()) then
-			table.insert(playerIDs, hero:GetPlayerOwnerID())
+			table.insert(playerIDs, hero:GetPlayerID())
 		end
 	end)
 	self:AddGroupOfLosers(playerIDs)
@@ -334,7 +334,9 @@ end
 function MiniGame:SetMusicStatus(nMusicStatus, flIntensity)
 	_G.GameMode:DoToAllHeroes(function(hero)
 		local player = hero:GetPlayerOwner()
-        player:SetMusicStatus(nMusicStatus, flIntensity)
+		if player then
+        	player:SetMusicStatus(nMusicStatus, flIntensity)
+        end
 	end)
 end
 
@@ -349,7 +351,11 @@ function MiniGame:StartWeatherEffect(weatherEffect)
 			return
 		end
 
-		local weatherParticle = ParticleManager:CreateParticleForPlayer(weatherEffect, PATTACH_EYES_FOLLOW, hero, hero:GetPlayerOwner())
+		local owner = hero:GetPlayerOwner()
+		local weatherParticle = nil
+		if owner then
+			weatherParticle = ParticleManager:CreateParticleForPlayer(weatherEffect, PATTACH_EYES_FOLLOW, hero, owner)
+		end
 		hero.weatherEffect = weatherParticle
 	end)
 end

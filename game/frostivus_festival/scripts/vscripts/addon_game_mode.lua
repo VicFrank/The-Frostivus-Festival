@@ -36,11 +36,18 @@ function Precache( context )
   -- Entire items can be precached by name
   -- Abilities can also be precached in this way despite the name
   PrecacheItemByNameSync("item_rune_heal", context)
+  -- These abilities' particles don't seem to async precache correctly on the client
+  PrecacheItemByNameSync("furion_teleport_lua", context)
+  PrecacheItemByNameSync("whirling_death_lua", context)
+  PrecacheItemByNameSync("timber_chain_lua", context)
+  PrecacheItemByNameSync("chakram_lua", context)
+  PrecacheItemByNameSync("chakram_return_lua", context)
 
   -- Entire heroes (sound effects/voice/models/particles) can be precached with PrecacheUnitByNameSync
   -- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way
   PrecacheUnitByNameSync("npc_dota_hero_ancient_apparition", context)
-  PrecacheUnitByNameSync("npc_dota_hero_enigma", context)
+  PrecacheUnitByNameSync("npc_dota_hero_shredder", context)
+  PrecacheUnitByNameSync("npc_dota_hero_furion", context)
 end
 
 -- Create the game mode when we activate

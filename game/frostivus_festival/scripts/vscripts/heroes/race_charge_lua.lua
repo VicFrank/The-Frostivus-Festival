@@ -4,7 +4,7 @@ function race_charge_lua:OnSpellStart()
     local caster = self:GetCaster()
     local ability = self
     local sound = "Hero_Spirit_Breaker.ChargeOfDarkness.FP"
-    local soundChance = 10
+    local soundChance = 5
 
     local distance = ability:GetSpecialValueFor("distance")
 
@@ -12,5 +12,7 @@ function race_charge_lua:OnSpellStart()
     	EmitSoundOn(sound, caster)
     end
 
-    caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(distance, 0, 0))
+    local distance = 20
+
+    caster.target = caster.target + Vector(distance, 0, 0)
 end

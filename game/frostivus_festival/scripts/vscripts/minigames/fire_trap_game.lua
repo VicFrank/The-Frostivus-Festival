@@ -92,7 +92,7 @@ function FireTrapGame:GameStart()
 		if not self.isRunning then return end
 		for _,hero in pairs(_G.GameMode.heroList) do
 			if not hero.winner and hero:GetAbsOrigin().x > vRaceRight.x then
-				self:AddWinner(hero:GetPlayerOwnerID())
+				self:AddWinner(hero:GetPlayerID())
 				local distance = 200
 				local newPosition = hero:GetAbsOrigin() + Vector(distance,0,0)
 				FindClearSpaceForUnit(hero, newPosition, true)

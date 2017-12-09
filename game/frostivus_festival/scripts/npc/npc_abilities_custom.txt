@@ -283,7 +283,7 @@
 
         "AbilityCastRange"              "1300"
         "AbilityCastPoint"              "0.3"
-        "AbilityCooldown"               "8"
+        "AbilityCooldown"               "3"
         "AbilityDamage"                 "100"
         "AbilityManaCost"               "0"
 
@@ -412,12 +412,12 @@
 
         "AbilitySpecial"
         {
-            "03"
+            "01"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "movement_damage_pct"       "35"
+                "movement_damage_pct"       "30"
             }            
-            "04"
+            "02"
             {
                 "var_type"                  "FIELD_FLOAT"
                 "damage_cap_interval"       "0.1"
@@ -566,6 +566,7 @@
         "precache"
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
+            "particle"  "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge.vpcf"
         }
 
         "AbilityCooldown"               "0"
