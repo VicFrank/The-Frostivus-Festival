@@ -70,14 +70,14 @@ function SpiritBreakerRaceGame:GameStart()
 
 				-- Check to see if we've crossed the finish line
 				if hero:GetAbsOrigin().x > vRaceRight.x then
-					self:AddWinner(hero:GetPlayerId())
+					self:AddWinner(hero:GetPlayerID())
 					local distance = 200
 					local newPosition = hero:GetAbsOrigin() + Vector(distance,0,0)
 					FindClearSpaceForUnit(hero, newPosition, true)
 					hero:AddNewModifier(hero, nil, "modifier_stunned_lua", {})
 					hero.winner = true
 					hero.speed = 0
-					PlayerResource:SetCameraTarget(hero:GetPlayerId(), nil)
+					PlayerResource:SetCameraTarget(hero:GetPlayerID(), nil)
 					numWinners = numWinners + 1
 					if numWinners == numPlayers - 1 then
 						Timers:CreateTimer(3, function()

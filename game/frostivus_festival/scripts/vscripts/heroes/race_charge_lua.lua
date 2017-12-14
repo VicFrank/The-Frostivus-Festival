@@ -12,7 +12,5 @@ function race_charge_lua:OnSpellStart()
     	EmitSoundOn(sound, caster)
     end
 
-    local distance = 20
-
     caster.target = caster.target + Vector(distance, 0, 0)
 end

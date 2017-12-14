@@ -57,7 +57,7 @@
             "01"
             {
                 "var_type"        "FIELD_FLOAT"
-                "heal"            "10"
+                "heal"            "5"
             }
         }
 
@@ -362,7 +362,7 @@
 
         "AbilityCastRange"              "0"
         "AbilityCastPoint"              "0.0"
-        "AbilityCooldown"               "8.0"
+        "AbilityCooldown"               "3.0"
         "AbilityManaCost"               "0"
 
         "AbilitySharedCooldown"         "blink"

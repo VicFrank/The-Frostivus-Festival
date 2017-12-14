@@ -261,6 +261,7 @@ function GameMode:OnConnectFull(keys)
   
   -- The Player ID of the joining player
   local playerID = ply:GetPlayerID()
+  GameRules.num_players = GameRules.num_players + 1
 end
 
 -- This function is called whenever illusions are created and tells you which was/is the original entity

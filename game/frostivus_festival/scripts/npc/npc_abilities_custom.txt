@@ -577,7 +577,7 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "distance"              "25"
+                "distance"              "30"
             }
         }
     }
@@ -1997,7 +1997,7 @@
             "01"
             {
                 "var_type"          "FIELD_FLOAT"
-                "damage"            "40.0"
+                "damage"            "65.0"
             }
             "02"
             {
@@ -2311,7 +2311,7 @@
             "03"
             {
                 "var_type"          "FIELD_INTEGER"
-                "stun_radius"       "600"
+                "stun_radius"       "100"
             }
         }
     }

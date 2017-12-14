@@ -100,7 +100,7 @@ end
 
 function modifier_weather_snowstorm_effect:OnCreated( kv )
 	if IsServer() then
-		self.frosty_damage = 1.5
+		self.frosty_damage = 2.0
 		self.tick_rate = .03
 		self.damage_per_tick = self.frosty_damage * self.tick_rate
 		self.tick_count = 0

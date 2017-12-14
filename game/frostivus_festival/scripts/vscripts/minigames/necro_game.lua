@@ -4,7 +4,6 @@ NecroGame = MiniGame:new()
 
 function NecroGame:Precache()
 	if not self.precached then
-		print("Precaching")
 		self.precached = true
 		PrecacheItemByNameAsync("item_rune_heal", function(...) end)
 		PrecacheUnitByNameAsync("custom_necrophos", function(...) end)
@@ -31,15 +30,14 @@ function NecroGame:GameStart()
 		hero:AddNewModifier(weatherDummy, weatherAbility, "modifier_weather_snowstorm", {} )
 	end)
 
-	local maxDistanceFromSpawner = 4500
 	local delay = 0
 
 	-- For some reason, I can't put these in a function or it will lose self.isRunning
 	Timers:CreateTimer(function()
 		if not self.isRunning then return end
 		self:SpawnRuneUniform("item_rune_heal", duration)
-		delay = delay + .5
-		return RandomFloat(delay, delay + 1)
+		delay = delay + .2
+		return RandomFloat(delay, delay + .5)
     end)
 
 	-- Override event function here
@@ -47,6 +45,7 @@ function NecroGame:GameStart()
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )
 		if killedUnit:GetUnitName() == "npc_dota_hero_queenofpain" then
 			self:AddLoser(killedUnit:GetPlayerID())
+			self:CheckForLoneSurvivor()
 		end
 	end
 end

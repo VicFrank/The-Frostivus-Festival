@@ -79,52 +79,34 @@ end
 ]]
 function GameMode:OnAllPlayersLoaded()
   DebugPrint("[BAREBONES] All Players have loaded into the game")
+  print(" Players Loaded")
 
-  -- We have a check delay, because the bot is actually added after OnAllPlayersLoaded
-  local checkDelay = 0
-  if IsInToolsMode() then
-    checkDelay = 3
-  end
-
-  Timers:CreateTimer(checkDelay, function()
-    for i=0, DOTA_MAX_TEAM_PLAYERS do
-      if PlayerResource:GetConnectionState(i) ~= 0 then
-        GameRules.num_players = GameRules.num_players + 1
+  Timers:CreateTimer(1, function()
+    print("  Checking for heroes " .. GameRules.num_players )
+    for i = 0, GameRules.num_players - 1 do
+      if PlayerResource:GetSelectedHeroEntity(i) == nil then
+        print("  Bailing on hero " .. i)
+        return 1
       end
     end
-  end)
 
-  Timers:CreateTimer(checkDelay, function()
-    local heroCount = TableCount(HeroList:GetAllHeroes())
-    if heroCount ~= GameRules.num_players then
-      return 1
+    print("  Starting Game")
+
+    for _,hero in pairs(HeroList:GetAllHeroes()) do
+      local team = hero:GetTeam()
+      GameRules.teams[team] = true
+      GameRules.teamToPlayer[team] = hero:GetPlayerID()
+      GameRules.score[team] = 0
     end
 
-    -- Wait just a bit more, just to be sure
-    local safteyDelay = 10
-    if IsInToolsMode() then
-      safteyDelay = 1
+    GameMode.heroList = HeroList:GetAllHeroes()
+
+    if not IsInToolsMode() then
+      GameMode:StartRandomGame()
+    else
+      -- GameMode:StartRandomGame()
+      GameMode:StartGameByName('zuus_race')
     end
-    Timers:CreateTimer(safteyDelay, function()
-      -- Add all the players and start the game
-      for _,hero in pairs(HeroList:GetAllHeroes()) do
-        local team = hero:GetTeam()
-        GameRules.teams[team] = true
-        GameRules.teamToPlayer[team] = hero:GetPlayerID()
-        GameRules.score[team] = 0
-      end
-
-      GameMode.heroList = HeroList:GetAllHeroes()
-
-      if not IsInToolsMode() then
-        GameMode:StartRandomGame()
-      else
-        -- GameMode:StartRandomGame()
-        GameMode:StartGameByName('zombie_game')
-      end
-    end)
-
-    return
   end)
 end
 

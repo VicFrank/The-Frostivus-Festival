@@ -56,6 +56,7 @@ function Activate()
   GameRules.GameMode:_InitGameMode()
 
   if IsInToolsMode() then
+    GameRules.num_players = GameRules.num_players + 1
     Timers:CreateTimer(2, function()
       Tutorial:AddBot("npc_dota_hero_sven", "", "", false)
     end)
