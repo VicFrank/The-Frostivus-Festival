@@ -446,7 +446,7 @@
     {
         "vscripts"                  "ai/lich.lua"
         "BaseClass"                 "npc_dota_creature"
-        "Model"                     "models/heroes/lich/lich.mdl"
+        "Model"                     "models/heroes/lich/lich.vmdl"
         "SoundSet"                  "Creep_Bad_Melee"
         "ModelScale"                "1"
         "Level"                     "0"

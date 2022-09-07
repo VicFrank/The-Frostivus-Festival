@@ -3,7 +3,6 @@
     <include src="file://{resources}/scripts/playertables/playertables_base.js" />
   </scripts>
   <script>
-    //from twilight ORPG for disabling talents
     var newUI = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("center_with_stats").FindChildTraverse("center_block");
 
     newUI.FindChildTraverse("StatBranch").style.visibility = "collapse";
@@ -70,11 +69,8 @@
   </script> 
 
   <Panel>
-    <!-- CustomUIElements go here.-->
-
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" /> 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_worldpanels.xml" />
-    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/containers/container_base.xml" /> -->
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/selection.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/round_scoreboard.xml" />
@@ -85,16 +81,5 @@
     <CustomUIElement type="FlyoutScoreboard" layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud_darkmoon.xml" />
-
-    <!-- From Overthrow.
-
-        <CustomUIElement type="HudTopBar"           layoutfile="file://{resources}/layout/custom_game/multiteam_top_scoreboard.xml" />
-        <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/overthrow_item_notification.xml" />
-        <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/team_select.xml" />
-        <CustomUIElement type="FlyoutScoreboard"    layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" />
-        <CustomUIElement type="HeroSelection"       layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
-        <CustomUIElement type="EndScreen"           layoutfile="file://{resources}/layout/custom_game/multiteam_end_screen.xml" />
-        <CustomUIElement type="GameInfo"            layoutfile="file://{resources}/layout/custom_game/overthrow_game_info.xml" />
-    -->
   </Panel>
 </root>

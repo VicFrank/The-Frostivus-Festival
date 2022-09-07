@@ -23,14 +23,10 @@ function OgreTankThink()
 		return 1
 	end
 
-	-- Increase acquisition range after the initial aggro
-	if ( not thisEntity.bAcqRangeModified ) and thisEntity:GetAggroTarget() then
-		thisEntity:SetAcquisitionRange( 3000 )
-		thisEntity.bAcqRangeModified = true
-	end
+	thisEntity:SetAcquisitionRange( 3000 )
 
 	local nEnemiesRemoved = 0
-	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
+	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 	for i = 1, #enemies do
 		local enemy = enemies[i]
 		if enemy ~= nil then
@@ -43,18 +39,21 @@ function OgreTankThink()
 	end
 
 	if JumpAbility ~= nil and JumpAbility:IsFullyCastable() and nEnemiesRemoved > 0 then
+		print("Jump")
 		return Jump()
 	end
 
 	if #enemies == 0 then
-		-- @todo: Could check whether there are ogre magi nearby that I should be positioning myself next to.  Either that or have the magi come to me.
+		print("No enemies")
 		return 1
 	end
 
 	if SmashAbility ~= nil and SmashAbility:IsFullyCastable() then
+		print("Smash")
 		return Smash( enemies[ 1 ] )
 	end
-	
+
+	print("Move")
 	return 0.5
 end
 
@@ -73,7 +72,8 @@ end
 
 function Smash( enemy )
 	if enemy == nil then
-		return
+		print("enemy is nil")
+		return 0.5
 	end
 
 	if ( not thisEntity:HasModifier( "modifier_provide_vision" ) ) then

@@ -4,7 +4,7 @@ modifier_mana_lua = class({})
 function modifier_mana_lua:OnCreated( kv )    
     if IsServer() then
         self.manaBonus = kv.mana - self:GetCaster():GetMaxMana()
-        self:GetParent():CalculateStatBonus()
+        self:GetParent():CalculateStatBonus(true)
     end
 end
 

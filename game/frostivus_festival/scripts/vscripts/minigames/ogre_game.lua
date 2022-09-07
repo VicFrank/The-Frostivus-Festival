@@ -15,7 +15,11 @@ function OgreGame:GameStart()
 
 	local spawner = Entities:FindByName(nil, "snow_small_spawner_center")
 
-	self:SpawnUnit("npc_dota_creature_ogre_tank", DOTA_TEAM_NEUTRALS, spawner, 0)
+	-- for some reason I have to wait a frame or he gets stuck
+	Timers:CreateTimer(function()
+		self:SpawnUnit("npc_dota_creature_ogre_tank", DOTA_TEAM_NEUTRALS, spawner, 0)
+	end)
+
 	self:SpawnVisionDummies(spawner)
 
 	local delay = 15.0

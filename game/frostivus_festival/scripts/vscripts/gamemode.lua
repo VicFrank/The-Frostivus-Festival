@@ -104,8 +104,8 @@ function GameMode:OnAllPlayersLoaded()
     if not IsInToolsMode() then
       GameMode:StartRandomGame()
     else
-      -- GameMode:StartRandomGame()
-      GameMode:StartGameByName('zuus_race')
+      GameMode:StartRandomGame()
+      -- GameMode:StartGameByName('pudge_wars')
     end
   end)
 end

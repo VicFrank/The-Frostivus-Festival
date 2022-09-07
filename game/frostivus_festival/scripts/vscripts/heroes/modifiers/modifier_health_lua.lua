@@ -4,7 +4,7 @@ modifier_health_lua = class({})
 function modifier_health_lua:OnCreated( kv )    
     if IsServer() then
         self.healthBonus = kv.health - self:GetCaster():GetHealth()
-        self:GetParent():CalculateStatBonus()
+        self:GetParent():CalculateStatBonus(true)
     end
 end
 
