@@ -49,15 +49,16 @@ function invoker_leader_cold_snap:OnSpellStart()
 
         local aoe = 5000
 
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(),
-                                          target,
-                                          nil,
-                                          aoe,
-                                          DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                          DOTA_UNIT_TARGET_HERO,
-                                          DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS,
-                                          FIND_ANY_ORDER,
-                                          false)
+        local enemies = FindUnitsInRadius(
+            caster:GetTeamNumber(),
+            target,
+            nil,
+            aoe,
+            DOTA_UNIT_TARGET_TEAM_ENEMY,
+            DOTA_UNIT_TARGET_HERO,
+            DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS,
+            FIND_ANY_ORDER,
+            false)
 
         for _,enemy in pairs(enemies) do
             -- enemy:AddNewModifier(caster, ability, "modifier_leader_cold_snap_lua", {duration = duration})
@@ -113,16 +114,17 @@ function invoker_leader_invoke:OnSpellStart()
     local invoke_particle_effect = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, caster)
 
     local invokedAbilityList = {
-                                -- invoker_leader_cold_snap = {"quas", "quas", "quas"},
-                                -- invoker_leader_ghost_walk = {"quas", "quas", "wex"},
-                                invoker_leader_ice_wall = {"quas", "quas", "exort"},
-                                invoker_leader_deafening_blast = {"quas", "wex", "exort"},
-                                invoker_leader_emp = {"wex", "wex", "wex"},
-                                invoker_leader_tornado = {"wex", "wex", "quas"},
-                                invoker_leader_chaos_meteor = {"exort", "exort", "wex"},
-                                invoker_leader_sunstrike = {"exort", "exort", "exort"},
-                                invoker_leader_forge_spirit = {"exort", "exort", "quas"},
-                                invoker_leader_alacrity = {"exort", "wex", "wex"},
+        -- invoker_leader_cold_snap = {"quas", "quas", "quas"},
+        -- invoker_leader_ghost_walk = {"quas", "quas", "wex"},
+        invoker_leader_ice_wall = {"quas", "quas", "exort"},
+        invoker_leader_deafening_blast = {"quas", "wex", "exort"},
+        invoker_leader_emp = {"wex", "wex", "wex"},
+        invoker_leader_tornado = {"wex", "wex", "quas"},
+        invoker_leader_chaos_meteor = {"exort", "exort", "wex"},
+        invoker_leader_sunstrike = {"exort", "exort", "exort"},
+        invoker_leader_forge_spirit = {"exort", "exort", "quas"},
+        invoker_leader_alacrity = {"exort", "wex", "wex"},
+        invoker_empty1 = {},
     }
 
     -- Remove any previously invoked spell
@@ -134,13 +136,7 @@ function invoker_leader_invoke:OnSpellStart()
     local randomAbilityName = GetRandomTableKey(invokedAbilityList)
     local ability = caster:AddAbility(randomAbilityName)
     ability:UpgradeAbility(false)
-
-    -- Show what the invoaction is supposed to be
-    -- local orbs = invokedAbilityList[randomAbilityName]
-    -- for _,orb in pairs(orbs) do
-    --     Notifications:TopToAll({ability="invoker_" .. orb, continue=true, duration = 1})
-    -- end
-
+    
     caster.currentInvocation = ability
 end
 function GetRandomTableKey( myTable )
@@ -251,11 +247,12 @@ function modifier_invoked_spell_to_cast:HitWithLightning()
     ParticleManager:SetParticleControl(particle, 1, targetPoint)
     ParticleManager:SetParticleControl(particle, 2, targetPoint)
 
-    local damageTable = {victim = self:GetParent(),
-                         attacker = self:GetCaster(),
-                         damage = 1,
-                         damage_type = DAMAGE_TYPE_PURE,
-                         ability = self:GetAbility(),
+    local damageTable = {
+        victim = self:GetParent(),
+        attacker = self:GetCaster(),
+        damage = 1,
+        damage_type = DAMAGE_TYPE_PURE,
+        ability = self:GetAbility(),
     }
     ApplyDamage(damageTable)
 end

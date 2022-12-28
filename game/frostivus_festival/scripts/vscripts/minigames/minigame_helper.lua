@@ -142,6 +142,13 @@ function GameMode:CreateHeroesForRound(miniGameHeroTable)
 			unit:AddAbility(abilityName):UpgradeAbility(true)
 		end
 
+		for i=0,23 do
+			local abil = unit:GetAbilityByIndex(i)		
+			if abil then
+				abil:UpgradeAbility(true)
+			end
+		end
+
 		for _,itemName in pairs(items) do
 			local item = CreateItem(itemName, unit, unit)
 			unit:AddItem(item)

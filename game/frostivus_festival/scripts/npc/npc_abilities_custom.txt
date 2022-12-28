@@ -585,6 +585,7 @@
         "ScriptFile"                    "heroes/invoker"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "MaxLevel"                      "1"
+        "HotKeyOverride"				"Q"
 
         "precache"
         {
@@ -603,6 +604,7 @@
         "ScriptFile"                    "heroes/invoker"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "MaxLevel"                      "1"
+        "HotKeyOverride"				"W"
 
         "precache"
         {
@@ -620,6 +622,7 @@
         "ScriptFile"                    "heroes/invoker"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "MaxLevel"                      "1"
+        "HotKeyOverride"				"E"
 
         "precache"
         {
@@ -637,6 +640,7 @@
         "ScriptFile"                    "heroes/invoker"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "MaxLevel"                      "1"
+        "HotKeyOverride"				"R"
 
         "precache"
         {

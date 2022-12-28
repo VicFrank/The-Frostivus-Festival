@@ -104,8 +104,8 @@ function GameMode:OnAllPlayersLoaded()
     if not IsInToolsMode() then
       GameMode:StartRandomGame()
     else
-      GameMode:StartRandomGame()
-      -- GameMode:StartGameByName('pudge_wars')
+      -- GameMode:StartRandomGame()
+      GameMode:StartGameByName('invoker_leader_game')
     end
   end)
 end

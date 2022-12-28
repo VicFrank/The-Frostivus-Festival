@@ -703,12 +703,12 @@
     {
         "override_hero"         "npc_dota_hero_invoker"
     
-        "Ability1"              "" 
-        "Ability2"              "" 
-        "Ability3"              "" 
-        "Ability4"              ""
-        "Ability5"              ""
-        "Ability6"              ""
+        "Ability1"              "invoker_quas_lua" 
+        "Ability2"              "invoker_wex_lua" 
+        "Ability3"              "invoker_exort_lua" 
+        "Ability4"              "generic_hidden"
+        "Ability5"              "generic_hidden"
+        "Ability6"              "invoker_invoke_lua"
         "Ability7"              ""
         "Ability8"              ""
         "Ability9"              ""
