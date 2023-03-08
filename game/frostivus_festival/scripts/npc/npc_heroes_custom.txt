@@ -22,7 +22,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -76,7 +76,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -129,7 +129,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -182,7 +182,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -235,7 +235,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -288,7 +288,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -341,7 +341,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -394,7 +394,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -447,7 +447,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -501,7 +501,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -556,7 +556,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -611,7 +611,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -666,7 +666,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -727,6 +727,7 @@
         "Ability22"             ""
         "Ability23"             ""
         "Ability24"             ""
+        "Ability25"             ""
 
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
@@ -781,7 +782,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -835,7 +836,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -889,7 +890,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -943,7 +944,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -997,7 +998,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -1050,7 +1051,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -1104,7 +1105,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -1162,7 +1163,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -1217,7 +1218,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "33"
 
@@ -1272,7 +1273,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -1326,7 +1327,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -1380,7 +1381,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -1434,7 +1435,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -1488,7 +1489,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -1543,7 +1544,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
@@ -1597,7 +1598,7 @@
         "Ability15"             ""
         "Ability16"             ""
         "Ability17"             ""
-
+        "Ability25"             ""
         "ArmorPhysical"             "0"
         "MagicalResistance"         "0"
 
