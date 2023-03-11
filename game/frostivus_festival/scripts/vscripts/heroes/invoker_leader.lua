@@ -124,7 +124,7 @@ function invoker_leader_invoke:OnSpellStart()
         invoker_leader_sunstrike = {"exort", "exort", "exort"},
         invoker_leader_forge_spirit = {"exort", "exort", "quas"},
         invoker_leader_alacrity = {"exort", "wex", "wex"},
-        invoker_empty1 = {},
+        -- invoker_empty1 = {},
     }
 
     -- Remove any previously invoked spell

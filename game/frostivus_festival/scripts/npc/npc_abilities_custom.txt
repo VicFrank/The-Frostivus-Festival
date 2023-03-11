@@ -779,11 +779,11 @@
             {
                 "Target"        "POINT"
                 "EffectName"    "particles/units/heroes/hero_invoker/invoker_tornado.vpcf"
-                "MoveSpeed"     "%speed"
-                "StartRadius"   "%width"
+                "MoveSpeed"     "900"
+                "StartRadius"   "160"
                 "StartPosition" "attach_origin"
-                "EndRadius"     "%width"
-                "FixedDistance" "%range"
+                "EndRadius"     "160"
+                "FixedDistance" "2600"
                 "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
                 "TargetTypes"   "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
                 "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
@@ -980,59 +980,47 @@
         "AbilityCooldown"               "0"
         "AbilityManaCost"               "0"
 
-         "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "land_time"             "1.3"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "area_of_effect"        "275"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "travel_distance"       "250"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "travel_speed"          "300"
-            }           
-            "05"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "damage_interval"       "0.5"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "vision_distance"       "500"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "end_vision_duration"   "3.0"
-            }
-            "08"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "main_damage"           "0"
-            }
-            "09"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "burn_duration"         "0.0"
-            }
-            "10"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "burn_dps"              "0"
-            }
-        }
+        "AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+				"value"					"0"
+			}
+			"land_time"					"1.3"
+			"area_of_effect"			"275"
+			"travel_distance"
+			{
+				"value"					"465 615 780 930 1095 1245 1410 1575"
+				"levelkey"				"wexlevel"
+			}
+			"travel_speed"				"300"
+			"damage_interval"
+			{
+				"value"					"0.5"
+				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
+			}
+			"vision_distance"			"500"
+			"end_vision_duration"		"3.0"
+			"main_damage"
+			{
+				"value"					"0"
+				"levelkey"				"exortlevel"
+			}
+			"burn_duration"				"3.0"
+			"burn_dps"
+			{
+				"value"					"0"
+				"levelkey"				"exortlevel"
+				"CalculateSpellDamageTooltip"	"1"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
+			}
+			"meteor_count"
+			{
+				"value"					"1"
+				"special_bonus_shard"	"+2"
+			}
+		}
     }
 
     "invoker_leader_ice_wall"

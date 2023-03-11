@@ -3,28 +3,29 @@ LinkLuaModifier("modifier_invoked_spell_to_cast", "heroes/invoker_leader.lua", L
 function Spawn()	
 	thisEntity.target = Entities:FindByName(nil, "invoker_leader_ability_target"):GetAbsOrigin()
 	thisEntity.invocationDelay = 5
-	thisEntity.invocationDelayTable = {5,
-									   5,
-									   5,
-									   4,
-									   5, 2, 
-									   4, 2, 
-									   4, 2,
-									   4, 2,
-									   4, 2,
-									   4, 2, 2, 
-									   4, 2, 2,
-									   4, 1, 1,
-									   4, 2, 2, 2, 
-									   4, 2, 2, 2, 
-									   4, 2, 1, 1,
-									   4, 1, 1, 1,
-									   4, 1, 1, 1,
-									   4, 1, 1, 1, 1,
-									   4, 1, 1, 1, 1, 1,
-									   4, 1, 1, 1, 1, 1, 1,
-									   4, 1, 1, 1, 1, 1, 1, 1,
-									   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+	thisEntity.invocationDelayTable = {
+		5,
+		5,
+		5,
+		4,
+		5, 2, 
+		4, 2, 
+		4, 2,
+		4, 2,
+		4, 2,
+		4, 2, 2, 
+		4, 2, 2,
+		4, 1, 1,
+		4, 2, 2, 2, 
+		4, 2, 2, 2, 
+		4, 2, 1, 1,
+		4, 1, 1, 1,
+		4, 1, 1, 1,
+		4, 1, 1, 1, 1,
+		4, 1, 1, 1, 1, 1,
+		4, 1, 1, 1, 1, 1, 1,
+		4, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 	}
 
 	Timers:CreateTimer(2,
@@ -63,15 +64,17 @@ function thisEntity:AIThink()
 		end
 
 		-- Add a modifier associated with the ability we just cast
-		local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(),
-	                                      thisEntity:GetAbsOrigin(),
-	                                      nil,
-	                                      5000, -- This is just a really big number to get everyone nearby
-	                                      DOTA_UNIT_TARGET_TEAM_ENEMY,
-	                                      DOTA_UNIT_TARGET_HERO,
-	                                      DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS,
-	                                      FIND_ANY_ORDER,
-	                                      false)
+		local enemies = FindUnitsInRadius(
+			thisEntity:GetTeamNumber(),
+			thisEntity:GetAbsOrigin(),
+			nil,
+			5000, -- This is just a really big number to get everyone nearby
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_HERO,
+			DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS,
+			FIND_ANY_ORDER,
+			false)
+		
 		for _,enemy in pairs(enemies) do
 			local modifier = enemy:AddNewModifier(thisEntity, abilityToCast, "modifier_invoked_spell_to_cast", {duration = 4})
 			-- trim off the "invoker_leader_" part
