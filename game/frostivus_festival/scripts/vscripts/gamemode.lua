@@ -105,7 +105,7 @@ function GameMode:OnAllPlayersLoaded()
       GameMode:StartRandomGame()
     else
       -- GameMode:StartRandomGame()
-      GameMode:StartGameByName('timbersaw_game')
+      GameMode:StartGameByName('ogre_game')
     end
   end)
 end
@@ -156,7 +156,7 @@ function GameMode:InitGameMode()
 
   GameRules:SetCustomGameAllowHeroPickMusic( false )
   GameRules:SetCustomGameAllowBattleMusic( false )
-  GameRules:SetCustomGameAllowMusicAtGameStart( true )
+  GameRules:SetCustomGameAllowMusicAtGameStart( false )
 
   GameRules.teams = {}
   GameRules.teamToPlayer = {}

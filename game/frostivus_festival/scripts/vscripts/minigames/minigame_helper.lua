@@ -40,6 +40,8 @@ end
 function GameMode:InitializeRound(miniGameTable)
 	local gameName = miniGameTable["name"]
 	local gameDescription = miniGameTable["description"]
+	local music = miniGameTable["music"] or DOTA_MUSIC_STATUS_NONE
+	local musicIntensity = miniGameTable["music_intensity"] or 0.5
 	print("Initializing " .. gameName)
 	print(gameDescription)
 
@@ -78,7 +80,7 @@ function GameMode:InitializeRound(miniGameTable)
 	-- Wait so there's time for precaching
 	Timers:CreateTimer(gameStartDelay, function()
 		GameMode.currentGame:GameStart()
-		GameMode:StartBattleMusic()
+		GameMode:StartMusic(music, musicIntensity)
 	end)
 end
 
@@ -190,11 +192,11 @@ function GameMode:PlaceHeroesAtSpawns(spawnerName)
     end
 end
 
-function GameMode:StartBattleMusic()
+function GameMode:StartMusic(music, intensity)
     for _,hero in pairs(GameMode.heroList) do
         local player = hero:GetPlayerOwner()
         if player then
-        	player:SetMusicStatus(DOTA_MUSIC_STATUS_EXPLORATION, .5)
+        	player:SetMusicStatus(music, intensity)
         end
     end
 end

@@ -49,6 +49,8 @@ tMINIGAME_INIT_TABLE = {
 	-- },
 
 	taunt_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "Suicidal Axe",
 		description = "Be the first player to die",
 		hero = {
@@ -64,6 +66,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	suicidal_pudge_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "Suicidal Pudge",
 		description = "Stay away from the suicidal pudge",
 		hero = {
@@ -81,6 +85,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	chain_frost_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "Chain Frost Tag",
 		description = "Avoid the Lich's Chain Frosts",
 		hero = {
@@ -98,6 +104,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	remote_mine_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "Minefield Survival",		
 		description = "Avoid the exploding bombs",
 		singlePlayer = true,
@@ -114,6 +122,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	zuus_race = {
+		music = DOTA_MUSIC_STATUS_PRE_GAME_EXPLORATION,
+		music_intensity = 1,
 		name = "Minefield Racing",
 		description = "Navigate a dangerous minefield, using lightning to guide your way",
 		singlePlayer = true,
@@ -135,6 +145,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	mirana_arrow_game = {
+		music = DOTA_MUSIC_STATUS_PRE_GAME_EXPLORATION ,
+		music_intensity = 1,
 		name = "Arrow Practice",
 		description = "Shoot one of the bells with an Arrow",
 		singlePlayer = true,
@@ -152,6 +164,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	necro_game = {
+		music = DOTA_MUSIC_STATUS_PRE_GAME_EXPLORATION ,
+		music_intensity = 1,
 		name = "Survive the Winter",
 		description = "Pick up Regen Runes to survive the freezing winter",
 		singlePlayer = true,
@@ -167,6 +181,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	pudge_wars = {
+		music = DOTA_MUSIC_STATUS_BATTLE,
+		music_intensity = 1,
 		name = "Pudge Wars",
 		description = "Get points by killing other players",
 		hero = {
@@ -218,6 +234,8 @@ tMINIGAME_INIT_TABLE = {
 	-- },
 
 	earth_spirit_game = {
+		music = DOTA_MUSIC_STATUS_BATTLE,
+		music_intensity = 0.5,
 		name = "Kaolin Soccer",
 		description = "Keep the ball out of your goal",
 		hero = {
@@ -253,6 +271,8 @@ tMINIGAME_INIT_TABLE = {
 	-- },
 
 	archer_wars = {
+		music = DOTA_MUSIC_STATUS_BATTLE,
+		music_intensity = 1,
 		name = "Archer Wars",
 		description = "Last Archer Standing",
 		hero = {
@@ -270,6 +290,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	ogre_seal_game = {
+		music = DOTA_MUSIC_STATUS_BATTLE,
+		music_intensity = 0.5,
 		name = "Ogre Seal Survival",
 		description = "Avoid getting crushed by the Ogre Seal",
 		singlePlayer = true,
@@ -287,6 +309,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	ogre_game = {
+		music = DOTA_MUSIC_STATUS_BATTLE,
+		music_intensity = 0.5,
 		name = "Ogre Survival",
 		description = "Avoid getting crushed by the Ogre",
 		singlePlayer = true,
@@ -304,6 +328,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	bloodseeker_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "Red Light, Green Light",
 		description = "Make it to the end of the race without being killed by rupture",
 		singlePlayer = true,
@@ -322,6 +348,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	spirit_breaker_race = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "Spirit Breaker Race",
 		description = "Spam Charge to move forwards",
 		hero = {
@@ -337,6 +365,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	zombie_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "Zombies Zombies Zombies",
 		description = "Survive the Zombie Apocalypse",
 		singlePlayer = true,
@@ -355,6 +385,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	ursa_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 0.5,
 		name = "Poke the Ogre",
 		description = "Do the most damage to the Ogre before time runs out. Fury Swipes stacks with other players.",
 		singlePlayer = true,
@@ -375,6 +407,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	invoker_leader_game = {
+		music = DOTA_MUSIC_STATUS_PRE_GAME_EXPLORATION,
+		music_intensity = 1,
 		name = "Follow the Leader",
 		description = "Invoke the same spells as Invoker\n\nTake damage for invoking the wrong spell, or not invoking on time",
 		singlePlayer = true,
@@ -397,6 +431,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	furion_teleport_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "Coin Collection",
 		description = "Collect the most coins before time runs out",
 		hero = {
@@ -413,6 +449,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	spirit_breaker_game = {
+		music = DOTA_MUSIC_STATUS_BATTLE,
+		music_intensity = 1,
 		name = "Spirit Breaker Sumo",
 		description = "Try to push other players out of bounds",
 		hero = {
@@ -430,6 +468,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	templar_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 0.5,
 		name = "Refraction Survival",
 		description = "Use Refraction to survive the fire. Keeping Refraction on drains mana.",
 		singlePlayer = true,
@@ -464,6 +504,8 @@ tMINIGAME_INIT_TABLE = {
 	-- },
 
 	enchantress_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "Impetus Throwing Contest",
 		description = "Throw the longest Impetus. Distance is measured from where you are when your lance hits.",
 		hero = {
@@ -480,6 +522,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	techies_sumo_game = {
+		music = DOTA_MUSIC_STATUS_BATTLE,
+		music_intensity = 1,
 		name = "Techies Knockout",
 		description = "Use your mines to push other players out of bounds",
 		hero = {
@@ -496,6 +540,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	fire_trap_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "Fire Trap Race",
 		description = "Make it to the end without being killed by the fire",
 		singlePlayer = true,
@@ -525,6 +571,8 @@ tMINIGAME_INIT_TABLE = {
 	-- },
 
 	antimage_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "An End To All Magic",
 		description = "Don't get pushed off the platform by Invoker's Deafening Blasts",
 		singlePlayer = true,
@@ -541,6 +589,8 @@ tMINIGAME_INIT_TABLE = {
 	},
 
 	timbersaw_game = {
+		music = DOTA_MUSIC_STATUS_EXPLORATION,
+		music_intensity = 1,
 		name = "Deforestation",
 		description = "Destroy the most trees before time runs out!",
 		hero = {
