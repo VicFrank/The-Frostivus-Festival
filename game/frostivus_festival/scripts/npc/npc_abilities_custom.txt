@@ -1356,11 +1356,6 @@
                 "var_type"              "FIELD_INTEGER"
                 "radius_end"            "225"
             }
-            "05"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "end_vision_duration"   "1.75"
-            }
             "06"
             {
                 "var_type"              "FIELD_FLOAT"
@@ -1381,7 +1376,7 @@
                 "Function"              "deafening_blast_start"
                 "Target"                "POINT"
                 "dummy_ability_name"    "invoker_deafening_blast_dummy_datadriven"
-                "projectile_name"       "particles/custom_particles/deafening_blast_invoker/invoker_deafening_blast.vpcf"
+                "projectile_name"       "particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf"
             }
         }
     }

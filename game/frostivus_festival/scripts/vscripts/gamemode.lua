@@ -105,7 +105,7 @@ function GameMode:OnAllPlayersLoaded()
       GameMode:StartRandomGame()
     else
       -- GameMode:StartRandomGame()
-      GameMode:StartGameByName('invoker_leader_game')
+      GameMode:StartGameByName('antimage_game')
     end
   end)
 end
