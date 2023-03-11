@@ -105,7 +105,7 @@ function GameMode:OnAllPlayersLoaded()
       GameMode:StartRandomGame()
     else
       -- GameMode:StartRandomGame()
-      GameMode:StartGameByName('antimage_game')
+      GameMode:StartGameByName('timbersaw_game')
     end
   end)
 end

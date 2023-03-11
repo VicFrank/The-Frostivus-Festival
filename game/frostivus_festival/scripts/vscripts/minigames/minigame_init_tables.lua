@@ -550,8 +550,6 @@ tMINIGAME_INIT_TABLE = {
 			abilities = {
 				"whirling_death_lua",
 				"timber_chain_lua",
-				"generic_hidden",
-				"generic_hidden",
 				"chakram_return_lua",
 				"chakram_lua",
 			},
