@@ -105,7 +105,7 @@ function GameMode:OnAllPlayersLoaded()
       GameMode:StartRandomGame()
     else
       -- GameMode:StartRandomGame()
-      GameMode:StartGameByName('ogre_game')
+      GameMode:StartGameByName('pudge_wars')
     end
   end)
 end

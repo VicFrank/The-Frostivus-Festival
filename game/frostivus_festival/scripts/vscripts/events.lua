@@ -25,6 +25,8 @@ function GameMode:OnNPCSpawned(keys)
   DebugPrintTable(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
+
+  npc:RemoveModifierByName("modifier_fountain_invulnerability")
 end
 
 -- An entity somewhere has been hurt.  This event fires very often with many units so don't do too many expensive
@@ -325,9 +327,4 @@ end
 
 -- This function is called whenever any player sends a chat message to team or All
 function GameMode:OnPlayerChat(keys)
-  local teamonly = keys.teamonly
-  local userID = keys.userid
-  local playerID = self.vUserIds[userID]:GetPlayerID()
-
-  local text = keys.text
 end
