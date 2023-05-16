@@ -233,23 +233,23 @@ tMINIGAME_INIT_TABLE = {
 	-- 	game = MonkeyKingGame:new{duration=120},
 	-- },
 
-	earth_spirit_game = {
-		music = DOTA_MUSIC_STATUS_BATTLE,
-		music_intensity = 0.5,
-		name = "Kaolin Soccer",
-		description = "Keep the ball out of your goal",
-		hero = {
-			heroName = "npc_dota_hero_earth_spirit",
-			health = 100,
-			mana = 100,
-			moveSpeed = 360,
-			abilities = {
-				"earth_spirit_kick_lua",
-			},
-		},
-		arena = "snow_small",
-		game = EarthSpiritGame:new{duration=120},
-	},
+	-- earth_spirit_game = {
+	-- 	music = DOTA_MUSIC_STATUS_BATTLE,
+	-- 	music_intensity = 0.5,
+	-- 	name = "Kaolin Soccer",
+	-- 	description = "Keep the ball out of your goal",
+	-- 	hero = {
+	-- 		heroName = "npc_dota_hero_earth_spirit",
+	-- 		health = 100,
+	-- 		mana = 100,
+	-- 		moveSpeed = 360,
+	-- 		abilities = {
+	-- 			"earth_spirit_kick_lua",
+	-- 		},
+	-- 	},
+	-- 	arena = "snow_small",
+	-- 	game = EarthSpiritGame:new{duration=120},
+	-- },
 
 	-- druid_game = {
 	-- 	name = "Boar, Bear, Hawk",
