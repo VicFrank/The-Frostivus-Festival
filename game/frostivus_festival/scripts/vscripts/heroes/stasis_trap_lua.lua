@@ -85,7 +85,7 @@ function modifier_stasis_trap:OnIntervalThink()
                 enemy:AddNewModifier(caster, ability, "modifier_stasis_trap_stun", {duration = stun_duration})
             end
 
-            caster:ForceKill(false)
+            ForceKill(caster)
             self:Destroy()
         end
     end

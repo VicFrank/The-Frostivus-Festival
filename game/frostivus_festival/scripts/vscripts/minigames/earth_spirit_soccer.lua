@@ -56,7 +56,7 @@ function EarthSpiritGame:GameStart()
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )
 		if killedUnit:GetUnitName() == "npc_dota_hero_earth_spirit" then
 			local goal = killedUnit.goal
-			goal:ForceKill(false)
+			ForceKill(goal)
 			goal:AddNoDraw()
 			self:AddLoser(killedUnit:GetPlayerID())
 			self:CheckForLoneSurvivor()
@@ -106,7 +106,7 @@ function EarthSpiritGame:GameEnd()
 
 	for _,v in pairs(self.goalTable) do
 		if not v:IsNull() and v then
-			v:ForceKill(false)
+			ForceKill(v)
 			v:AddNoDraw()
 		end
 	end

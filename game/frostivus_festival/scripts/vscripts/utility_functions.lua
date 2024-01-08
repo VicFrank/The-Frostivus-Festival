@@ -11,6 +11,10 @@ function BroadcastMessage( sMessage, fDuration )
     FireGameEvent( "show_center_message", centerMessage )
 end
 
+function ForceKill(unit)
+  unit:Kill(nil, nil)
+end
+
 function PickRandomShuffle( reference_list, bucket )
     if ( TableCount(reference_list) == 0 ) then
         return nil

@@ -22,11 +22,11 @@ function TechiesSumoGame:GameStart()
 		if not self.isRunning then return end
 		_G.GameMode:DoToAllHeroes(function(hero)
 			if hero:GetAbsOrigin().z <= 10 then
-				hero:ForceKill(false)
+				ForceKill(hero)
 			end
 		end)
 		return .1
-    end)	
+	end)	
 	
 	_G.GameMode.OnEntityKilled = function (empty, keys)
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )

@@ -113,7 +113,7 @@ function modifier_proximity_mine:OnIntervalThink()
                 ApplyDamage(damageTable)
             end
 
-            caster:ForceKill(false)
+            ForceKill(caster)
             self:Destroy()
         end
     end    

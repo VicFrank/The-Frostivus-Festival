@@ -20,13 +20,13 @@ function SpiritBreakerGame:GameStart()
 		if not self.isRunning then return end
 		_G.GameMode:DoToAllHeroes(function(hero)
 			if hero:GetAbsOrigin().z <= 10 then
-				hero:ForceKill(false)
+				ForceKill(hero)
 			end
 		end)
 		return .1
-    end)	
+	end)
 	
-	_G.GameMode.OnEntityKilled = function (empty, keys)
+	GameMode.OnEntityKilled = function (empty, keys)
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )
 		if killedUnit:GetUnitName() == "npc_dota_hero_spirit_breaker" then
 			self:AddLoser(killedUnit:GetPlayerID())
@@ -37,7 +37,7 @@ function SpiritBreakerGame:GameStart()
 end
 
 function SpiritBreakerGame:GameEnd()
-	_G.GameMode.OnEntityKilled = function (empty, keys) end
+	GameMode.OnEntityKilled = function (empty, keys) end
 
 	self:DestroyVisionDummies()
 	self:CleanUp()

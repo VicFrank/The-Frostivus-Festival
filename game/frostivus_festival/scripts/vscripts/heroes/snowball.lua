@@ -59,7 +59,7 @@ function modifier_snowball:OnDestroy()
     local ability = self:GetAbility()
 
     if IsServer() then
-        parent:ForceKill(false)
+        ForceKill(parent)
     end
 end
 
@@ -129,7 +129,7 @@ function modifier_sled_penguin_movement:OnDestroy()
     if IsServer() then
         self:GetParent():RemoveHorizontalMotionController( self )
         EmitSoundOn( "Hero_Tusk.IceShards.Penguin", self:GetParent() )
-        self:GetParent():ForceKill(false)
+        ForceKill(self:GetParent())
     end
 end
 

@@ -65,20 +65,6 @@ function GameMode:_OnEntityKilled( keys )
     killerEntity = EntIndexToHScript( keys.entindex_attacker )
   end
 
-  if killedUnit:IsRealHero() then 
-    DebugPrint("KILLED, KILLER: " .. killedUnit:GetName() .. " -- " .. killerEntity:GetName())
-    if END_GAME_ON_KILLS and GetTeamHeroKills(killerEntity:GetTeam()) >= KILLS_TO_END_GAME_FOR_TEAM then
-      GameRules:SetSafeToLeave( true )
-      GameRules:SetGameWinner( killerEntity:GetTeam() )
-    end
-
-    --PlayerResource:GetTeamKills
-    if SHOW_KILLS_ON_TOPBAR then
-      GameRules:GetGameModeEntity():SetTopBarTeamValue ( DOTA_TEAM_BADGUYS, GetTeamHeroKills(DOTA_TEAM_BADGUYS) )
-      GameRules:GetGameModeEntity():SetTopBarTeamValue ( DOTA_TEAM_GOODGUYS, GetTeamHeroKills(DOTA_TEAM_GOODGUYS) )
-    end
-  end
-
   GameMode._reentrantCheck = true
   GameMode:OnEntityKilled( keys )
   GameMode._reentrantCheck = false

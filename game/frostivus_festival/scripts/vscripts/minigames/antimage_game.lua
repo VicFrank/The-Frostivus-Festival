@@ -63,7 +63,7 @@ function AntimageGame:GameStart()
 		if not self.isRunning then return end
 		_G.GameMode:DoToAllHeroes(function(hero)
 			if hero:GetAbsOrigin().z <= 10 then
-				hero:ForceKill(false)
+				ForceKill(hero)
 			end
 		end)
 		return .1

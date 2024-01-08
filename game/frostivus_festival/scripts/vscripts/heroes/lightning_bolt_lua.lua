@@ -25,7 +25,7 @@ function lightning_bolt_lua:OnSpellStart()
 	unit:AddNoDraw()
 
 	Timers:CreateTimer(true_sight_duration, function()
-		unit:ForceKill(false)
+		ForceKill(unit)
 	end)
 end
 

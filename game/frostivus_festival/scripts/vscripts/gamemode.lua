@@ -105,7 +105,7 @@ function GameMode:OnAllPlayersLoaded()
       GameMode:StartRandomGame()
     else
       -- GameMode:StartRandomGame()
-      GameMode:StartGameByName('pudge_wars')
+      GameMode:StartGameByName('spirit_breaker_game')
     end
   end)
 end

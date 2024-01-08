@@ -203,7 +203,7 @@ function MiniGame:KillAllUnits()
 									false)
 
 	for _,unit in pairs(units) do
-		unit:ForceKill(false)
+		ForceKill(unit)
 		unit:AddNoDraw()
 	end
 end
@@ -219,7 +219,7 @@ function MiniGame:CheckForLoneSurvivor()
 			if not self.isRunning then return end
 			local winner = table.remove(survivors)
 			if winner:IsAlive() then
-				winner:ForceKill(false)
+				ForceKill(winner)
 			end
 		end)
 	end

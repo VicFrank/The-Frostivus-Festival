@@ -44,7 +44,7 @@ function storegga_avalanche:OnChannelFinish( bInterrpted )
 	if IsServer() then
 		ParticleManager:DestroyParticle( self.nChannelFX, false )
 		if self.hThinker ~= nil and self.hThinker:IsNull() == false then
-			self.hThinker:ForceKill( false )
+			ForceKill(self.hThinker)
 		end
 
 	end

@@ -77,7 +77,7 @@ function modifier_campfire:OnIntervalThink()
 		local duration = self:GetAbility():GetSpecialValueFor( "campfire_duration" )
 		if GameRules:GetGameTime() > self.fCreationTime + duration then
 			self:Destroy()
-			self:GetParent():ForceKill(false)
+			ForceKill(self:GetParent())
 			self:GetParent():AddNoDraw()
 		end
 	end

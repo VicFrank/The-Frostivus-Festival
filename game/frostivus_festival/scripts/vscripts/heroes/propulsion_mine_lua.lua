@@ -139,7 +139,7 @@ function modifier_propulsion_mine:Explode()
         -- hero.placedMine = false
         -- hero:FindAbilityByName("place_propulsion_mine_lua"):SetActivated(true)
 
-        caster:ForceKill(false)
+        ForceKill(caster)
     end
 end
 

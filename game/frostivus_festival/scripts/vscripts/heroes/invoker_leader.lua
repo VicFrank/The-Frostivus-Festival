@@ -25,7 +25,7 @@ function invoker_leader_forge_spirit:OnSpellStart()
     function()
         for _,forge_spirit in pairs(forgeSpiritTable) do
             if forge_spirit and forge_spirit:IsAlive() then
-                forge_spirit:ForceKill(false)
+                ForceKill(forge_spirit)
             end
         end
     end)

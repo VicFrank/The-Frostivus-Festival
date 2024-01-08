@@ -53,7 +53,7 @@ function ChainFrostGame:KillAllPenguins()
 									   false)
 
 	for _,v in pairs(penguins) do
-		v:ForceKill(false)
+		ForceKill(v)
 		v:AddNoDraw()
 	end
 end
