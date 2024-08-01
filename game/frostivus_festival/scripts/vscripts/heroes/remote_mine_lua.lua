@@ -38,11 +38,12 @@ function modifier_remote_mine:OnIntervalThink()
 
         local damage_per_tick = ability:GetSpecialValueFor("damage_per_tick")
 
-        local damageTable = {victim = caster,
-                             attacker = caster, 
-                             damage = damage_per_tick,
-                             damage_type = DAMAGE_TYPE_MAGICAL,
-                             ability = ability
+        local damageTable = {
+            victim = caster,
+            attacker = caster, 
+            damage = damage_per_tick,
+            damage_type = DAMAGE_TYPE_MAGICAL,
+            ability = ability
         } 
 
         ApplyDamage(damageTable)
@@ -70,22 +71,24 @@ function modifier_remote_mine:OnDestroy()
         ParticleManager:SetParticleControl(particle_explosion_fx, 3, center)
         ParticleManager:ReleaseParticleIndex(particle_explosion_fx)
 
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(),
-                                          center,
-                                          nil,
-                                          damage_radius,
-                                          DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                          DOTA_UNIT_TARGET_HERO,
-                                          DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-                                          FIND_ANY_ORDER,
-                                          false)
+        local enemies = FindUnitsInRadius(
+            caster:GetTeamNumber(),
+            center,
+            nil,
+            damage_radius,
+            DOTA_UNIT_TARGET_TEAM_ENEMY,
+            DOTA_UNIT_TARGET_HERO,
+            DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+            FIND_ANY_ORDER,
+            false)
 
         for _,enemy in pairs(enemies) do
-            local damageTable = {victim = enemy,
-                                 attacker = caster, 
-                                 damage = damage,
-                                 damage_type = DAMAGE_TYPE_MAGICAL,
-                                 ability = self.ability
+            local damageTable = {
+                victim = enemy,
+                attacker = caster, 
+                damage = damage,
+                damage_type = DAMAGE_TYPE_MAGICAL,
+                ability = self.ability
             }
 
             ApplyDamage(damageTable)

@@ -188,7 +188,7 @@ function chakram_lua:OnSpellStart()
             -- Kill the chakram if the caster died
             if not caster or not caster:IsAlive() then
                 ParticleManager:DestroyParticle(dummy.particle_fx, true)
-                dummy:ForceKill(false)
+                ForceKill(dummy)
                 return
             end
             if (caster:GetAbsOrigin() - dummy:GetAbsOrigin()):Length2D() > break_distance then
@@ -255,7 +255,7 @@ function ReturnChakram(caster)
         dummy:SetPhysicsVelocity(direction * speed)
 
         if (dummy:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() < 10 then
-            dummy:ForceKill(false)
+            ForceKill(dummy)
             returnAbility:SetHidden(true)
             returnAbility:SetAbilityIndex(7)
             normalAbility:SetHidden(false)

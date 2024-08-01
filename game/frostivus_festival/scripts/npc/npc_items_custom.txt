@@ -51,13 +51,9 @@
             "sound"                 "sounds/weapons/creep/neutral/troll_priest_heal.vsnd"
         }
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"        "FIELD_FLOAT"
-                "heal"            "5"
-            }
+            "heal"            "5"
         }
 
         "OnSpellStart"
@@ -120,13 +116,9 @@
             "sound"                 "sounds/items/rune_haste.vsnd"
         }
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"        "FIELD_FLOAT"
-                "duration"        "12.0"
-            }
+            "duration"        "12.0"
         }
 
         "OnSpellStart"
@@ -186,13 +178,9 @@
             "sound"                 "sounds/weapons/creep/neutral/troll_priest_heal.vsnd"
         }
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"        "FIELD_FLOAT"
-                "heal"            "1000"
-            }
+            "heal"            "1000"
         }
 
         "OnSpellStart"
@@ -255,13 +243,9 @@
             "sound"                 "sounds/items/rune_dd.vsnd"
         }
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"        "FIELD_FLOAT"
-                "duration"        "12.0"
-            }
+            "duration"        "12.0"
         }
 
         "OnSpellStart"
@@ -372,23 +356,11 @@
             "particle"                  "particles/items_fx/blink_dagger_end.vpcf"
         }
 
-       "AbilitySpecial"
+       "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "blink_range"           "1200"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "blink_damage_cooldown" "3.0"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "blink_range_clamp"     "960"
-            }
+            "blink_range"           "1200"
+            "blink_damage_cooldown" "3.0"
+            "blink_range_clamp"     "960"
         }
     }
 

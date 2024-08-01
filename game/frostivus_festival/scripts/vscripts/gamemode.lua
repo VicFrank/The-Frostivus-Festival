@@ -105,7 +105,7 @@ function GameMode:OnAllPlayersLoaded()
       GameMode:StartRandomGame()
     else
       -- GameMode:StartRandomGame()
-      GameMode:StartGameByName('spirit_breaker_game')
+      GameMode:StartGameByName('remote_mine_game')
     end
   end)
 end

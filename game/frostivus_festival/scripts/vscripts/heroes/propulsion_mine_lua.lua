@@ -102,33 +102,36 @@ function modifier_propulsion_mine:Explode()
         ParticleManager:SetParticleControl(particle_explosion_fx, 3, center)
         ParticleManager:ReleaseParticleIndex(particle_explosion_fx)
 
-        local searchArea = FindUnitsInRadius(caster:GetTeam(),
-                                             center,
-                                             nil, 
-                                             radius, 
-                                             DOTA_UNIT_TARGET_TEAM_BOTH, 
-                                             DOTA_UNIT_TARGET_HERO, 
-                                             0,
-                                             0, 
-                                             false)
+        local searchArea = FindUnitsInRadius(
+            caster:GetTeam(),
+            center,
+            nil, 
+            radius, 
+            DOTA_UNIT_TARGET_TEAM_BOTH, 
+            DOTA_UNIT_TARGET_HERO, 
+            0,
+            0, 
+            false)
 
         for _,target in pairs(searchArea) do
-            local damageTable = {attacker = caster,
-                                 victim = target,
-                                 ability = ability,
-                                 damage = damage,
-                                 damage_type = DAMAGE_TYPE_MAGICAL,
+            local damageTable = {
+                attacker = caster,
+                victim = target,
+                ability = ability,
+                damage = damage,
+                damage_type = DAMAGE_TYPE_MAGICAL,
             }
             ApplyDamage(damageTable)
 
-            local knockback = {should_stun = 1,                                
-                               knockback_duration = knockback_duration,
-                               duration = knockback_duration,
-                               knockback_distance = knockback_distance,
-                               knockback_height = knockback_height,
-                               center_x = center.x,
-                               center_y = center.y,
-                               center_z = center.z,
+            local knockback = {
+                should_stun = 1,                                
+                knockback_duration = knockback_duration,
+                duration = knockback_duration,
+                knockback_distance = knockback_distance,
+                knockback_height = knockback_height,
+                center_x = center.x,
+                center_y = center.y,
+                center_z = center.z,
             }
 
             --target:RemoveModifierByName("modifier_knockback")
