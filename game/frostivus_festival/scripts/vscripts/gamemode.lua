@@ -105,7 +105,7 @@ function GameMode:OnAllPlayersLoaded()
       GameMode:StartRandomGame()
     else
       -- GameMode:StartRandomGame()
-      GameMode:StartGameByName('remote_mine_game')
+      GameMode:StartGameByName('mirana_arrow_game')
     end
   end)
 end

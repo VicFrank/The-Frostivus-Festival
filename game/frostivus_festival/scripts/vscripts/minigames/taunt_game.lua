@@ -18,14 +18,14 @@ function TauntGame:GameStart()
 	self:SpawnVisionDummies(spawner)
 	
 	local maxDistanceFromSpawner = 1800
-	local delay = 8.0
+	local delay = 5.0
 	Timers:CreateTimer(1,
     function()
 		if not self.isRunning then return end
 		self:SpawnUnit("taunt_game_creep", DOTA_TEAM_NEUTRALS, spawner, maxDistanceFromSpawner)
-		delay = math.max(delay - .5, 3)
+		delay = math.max(delay - .5, 2)
 		return delay
-    end)
+	end)
 
 	_G.GameMode.OnEntityKilled = function (empty, keys)
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )

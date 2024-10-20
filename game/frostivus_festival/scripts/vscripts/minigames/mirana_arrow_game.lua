@@ -29,18 +29,18 @@ function MiranaArrowGame:GameStart()
 	for _,spawner in pairs(spawners1) do
 		for i=1,3 do		
 			local unit = self:SpawnUnit("chain_frost_game_penguin", DOTA_TEAM_NEUTRALS, spawner, maxDistanceFromSpawner)
-			unit:SetBaseMaxHealth(5)
-			unit:SetMaxHealth(5)
-			unit:SetHealth(5)
+			unit:SetBaseMaxHealth(3)
+			unit:SetMaxHealth(3)
+			unit:SetHealth(3)
 		end
 	end
 
 	for _,spawner in pairs(spawners2) do
 		for i=1,3 do		
 			local unit = self:SpawnUnit("chain_frost_game_penguin", DOTA_TEAM_NEUTRALS, spawner, maxDistanceFromSpawner)
-			unit:SetBaseMaxHealth(3)
-			unit:SetMaxHealth(3)
-			unit:SetHealth(3)
+			unit:SetBaseMaxHealth(1)
+			unit:SetMaxHealth(1)
+			unit:SetHealth(1)
 		end
 	end
 

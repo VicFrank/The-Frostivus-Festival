@@ -38,6 +38,12 @@ function modifier_remote_mine:OnIntervalThink()
 
         local damage_per_tick = ability:GetSpecialValueFor("damage_per_tick")
 
+        if (damage_per_tick >= caster:GetHealth()) then
+            self:Destroy()
+            ForceKill(caster)
+            return
+        end
+
         local damageTable = {
             victim = caster,
             attacker = caster, 

@@ -1,9 +1,3 @@
-LinkLuaModifier("modifier_health_lua", "heroes/modifiers/modifier_health_lua.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_mana_lua", "heroes/modifiers/modifier_mana_lua.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_stunned_lua", "heroes/modifiers/modifier_stunned_lua.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_rooted_lua", "heroes/modifiers/modifier_rooted_lua.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_provide_vision_lua", "heroes/modifiers/modifier_provide_vision_lua.lua", LUA_MODIFIER_MOTION_NONE)
-
 minigame_tables = require('minigames/minigame_init_tables')
 minigame_tables_bucket = {}
 
@@ -145,7 +139,7 @@ function GameMode:CreateHeroesForRound(miniGameHeroTable)
 		end
 
 		for i=0,23 do
-			local abil = unit:GetAbilityByIndex(i)		
+			local abil = unit:GetAbilityByIndex(i)
 			if abil then
 				abil:UpgradeAbility(true)
 			end

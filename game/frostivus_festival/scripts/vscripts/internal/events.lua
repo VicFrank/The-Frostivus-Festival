@@ -52,22 +52,6 @@ end
 
 -- An entity died
 function GameMode:_OnEntityKilled( keys )
-  if GameMode._reentrantCheck then
-    return
-  end
-
-  -- The Unit that was Killed
-  local killedUnit = EntIndexToHScript( keys.entindex_killed )
-  -- The Killing entity
-  local killerEntity = nil
-
-  if keys.entindex_attacker ~= nil then
-    killerEntity = EntIndexToHScript( keys.entindex_attacker )
-  end
-
-  GameMode._reentrantCheck = true
-  GameMode:OnEntityKilled( keys )
-  GameMode._reentrantCheck = false
 end
 
 function GameMode:_OnEntityHurt( keys )

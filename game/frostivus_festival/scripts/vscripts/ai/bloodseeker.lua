@@ -17,13 +17,13 @@ function AIThink()
 end
 
 function CastRupture()
-	local duration = RandomFloat(.5, 5)
+	local duration = RandomFloat(.5, 4)
 	thisEntity.ruptureDuration = duration
 
 	thisEntity:CastAbilityOnPosition(thisEntity.castPosition, thisEntity.rupture, -1)
 
 	-- amount of time to wait after rupture wears off
-	local ruptureDownTime = duration + RandomFloat(.5, 5)
+	local ruptureDownTime = duration + RandomFloat(1, 6)
 
 	return ruptureDownTime
 end

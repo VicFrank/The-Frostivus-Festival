@@ -27,6 +27,7 @@ function TemplateGame:GameStart()
     end)
 	-- Override event function here
 	_G.GameMode.OnEntityKilled = function (empty, keys)
+		print("Entity Killed")
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )
 		if killedUnit:IsRealHero() then
 			self:AddLoser(killedUnit:GetPlayerID())

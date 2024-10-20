@@ -75,6 +75,11 @@ function modifier_rot_lua:OnIntervalThink()
     if IsServer() then
         local damagePerTick = self.rot_tick * self.rot_damage
 
+        if (damagePerTick >= self:GetParent():GetHealth()) then
+            ForceKill(self:GetParent())
+            return
+        end
+
         if self:GetCaster() and self:GetCaster():IsAlive() then
             local damage = {
                 victim = self:GetParent(),

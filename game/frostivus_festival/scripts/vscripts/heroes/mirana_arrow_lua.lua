@@ -16,22 +16,23 @@ function mirana_arrow_lua:OnSpellStart()
     local arrow_width = ability:GetSpecialValueFor("arrow_width")
     local arrow_range = ability:GetSpecialValueFor("arrow_range")
 
-    local projectile = {Ability = ability,
-                        EffectName = particle,
-                        vSpawnOrigin = spawnPoint,
-                        fDistance = arrow_range,
-                        fStartRadius = arrow_width,
-                        fEndRadius = arrow_width,
-                        Source = caster,
-                        bHasFrontalCone = false,
-                        bReplaceExisting = false,
-                        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,                                                          
-                        iUnitTargetType = DOTA_UNIT_TARGET_BASIC,                           
-                        bDeleteOnHit = true,
-                        vVelocity = direction * arrow_speed,
-                        bProvidesVision = false, 
-                        iVisionRadius = 100,
-                        iVisionTeamNumber = caster:GetTeamNumber()                      
+    local projectile = {
+        Ability = ability,
+        EffectName = particle,
+        vSpawnOrigin = spawnPoint,
+        fDistance = arrow_range,
+        fStartRadius = arrow_width,
+        fEndRadius = arrow_width,
+        Source = caster,
+        bHasFrontalCone = false,
+        bReplaceExisting = false,
+        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,                                                          
+        iUnitTargetType = DOTA_UNIT_TARGET_BASIC,                           
+        bDeleteOnHit = true,
+        vVelocity = direction * arrow_speed,
+        bProvidesVision = false, 
+        iVisionRadius = 100,
+        iVisionTeamNumber = caster:GetTeamNumber()                      
     }
 
     ProjectileManager:CreateLinearProjectile(projectile)
@@ -56,12 +57,13 @@ function mirana_arrow_lua:OnProjectileHit(target, location)
 
     target:AddNewModifier(self:GetCaster(), self, modifier, {duration = stun_duration})
 
-    local damageTable = {victim = target,
-                         attacker = caster,
-                         damage = 1,
-                         damage_type = DAMAGE_TYPE_MAGICAL,
-                         ability = ability
-                         }
+    local damageTable = {
+        victim = target,
+        attacker = caster,
+        damage = 1,
+        damage_type = DAMAGE_TYPE_MAGICAL,
+        ability = ability
+    }
 
     ApplyDamage(damageTable)    
 

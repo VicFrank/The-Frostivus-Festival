@@ -1,0 +1,5 @@
+LinkLuaModifier("modifier_health_lua", "heroes/modifiers/modifier_health_lua.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_mana_lua", "heroes/modifiers/modifier_mana_lua.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_stunned_lua", "heroes/modifiers/modifier_stunned_lua.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_rooted_lua", "heroes/modifiers/modifier_rooted_lua.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_provide_vision_lua", "heroes/modifiers/modifier_provide_vision_lua.lua", LUA_MODIFIER_MOTION_NONE)

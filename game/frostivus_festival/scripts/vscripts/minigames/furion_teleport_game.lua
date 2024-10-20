@@ -21,8 +21,8 @@ function FurionTeleportGame:GameStart()
 	self:SpawnVisionDummies(spawner)
 
 	local numSpawners = 2
-	local spawnDelayMin = 1
-	local spawnDelayMax = 3
+	local spawnDelayMin = 0.5
+	local spawnDelayMax = 1.5
 
 	for i=1,numSpawners do
 		Timers:CreateTimer(0, function()

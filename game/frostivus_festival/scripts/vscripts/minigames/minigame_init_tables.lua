@@ -337,7 +337,7 @@ tMINIGAME_INIT_TABLE = {
 			heroName = "npc_dota_hero_weaver",
 			health = 100,
 			mana = 100,
-			moveSpeed = 150,
+			moveSpeed = 200,
 			vision = 9000,
 			abilities = {
 				"shukuchi_lua"

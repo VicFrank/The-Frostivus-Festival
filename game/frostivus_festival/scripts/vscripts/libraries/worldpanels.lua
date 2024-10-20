@@ -113,30 +113,11 @@ function WorldPanels:start()
   self.nextID = 0
 
   --CustomGameEventManager:RegisterListener("Attachment_DoSphere", Dynamic_Wrap(WorldPanels, "Attachment_DoSphere"))
-  ListenToGameEvent('entity_killed', Dynamic_Wrap(WorldPanels, 'OnEntityKilled'), self)
 end
 
 function WorldPanels:OnEntityKilled( keys )
   --print( '[WorldPanels] OnEntityKilled Called' )
   --PrintTable( keys )
-  
-
-  -- The Ent that was Killed
-  local killedEnt = EntIndexToHScript( keys.entindex_killed )
-
-  local panels = WorldPanels.entToPanels[killedEnt]
-
-  if not killedEnt.IsRealHero or not killedEnt:IsRealHero() then
-    if panels then
-      for i=1,#panels do
-        local panel = panels[i]
-        for j=1,#panel.pids do
-          local pid = panel.pids[j]
-          PlayerTables:DeleteTableKey("worldpanels_" .. pid, panel.idString)
-        end
-      end
-    end
-  end
 
   
 end

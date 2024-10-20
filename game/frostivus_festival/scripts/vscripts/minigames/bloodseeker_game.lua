@@ -31,8 +31,6 @@ function BloodseekerGame:GameStart()
 	local numWinners = 0
 	local numPlayers = GameRules.num_players
 
-	print("numPlayers: " .. numPlayers)
-
 	-- Delay the start of the race to give people time to get ready
 	Timers:CreateTimer(startDelay, function()
 		local barriers = Entities:FindAllByName("race_barrier")

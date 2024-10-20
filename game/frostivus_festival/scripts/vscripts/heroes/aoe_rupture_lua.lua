@@ -15,15 +15,16 @@ function aoe_rupture_lua:OnSpellStart()
         -- basically global
         local aoe = 5000
 
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(),
-                                          target,
-                                          nil,
-                                          aoe,
-                                          DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                          DOTA_UNIT_TARGET_HERO,
-                                          DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS,
-                                          FIND_ANY_ORDER,
-                                          false)
+        local enemies = FindUnitsInRadius(
+            caster:GetTeamNumber(),
+            target,
+            nil,
+            aoe,
+            DOTA_UNIT_TARGET_TEAM_ENEMY,
+            DOTA_UNIT_TARGET_HERO,
+            DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS,
+            FIND_ANY_ORDER,
+            false)
 
         -- This is too loud if we do it on every unit hit
         EmitSoundOn(sound_hit, caster)
@@ -62,11 +63,12 @@ function modifier_rupture_damage:OnIntervalThink()
         local damage = distance * self.movement_damage_pct    
 
         if damage > 0 then
-            local damageTable = {victim = self.parent,
-                                 attacker = self.caster,
-                                 damage = damage,
-                                 damage_type = DAMAGE_TYPE_PURE,
-                                 ability = self.ability,
+            local damageTable = {
+                victim = self.parent,
+                attacker = self.caster,
+                damage = damage,
+                damage_type = DAMAGE_TYPE_PURE,
+                ability = self.ability,
             }
 
             ApplyDamage(damageTable)

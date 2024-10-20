@@ -1191,7 +1191,7 @@
     {
         "BaseClass"                     "ability_lua"
         "ScriptFile"                    "heroes/furion_teleport_lua.lua"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "MaxLevel"                      "1"
         "AbilitySound"                  "Hero_Furion.Teleport_Grow"
         "AbilityTextureName"            "furion_teleportation"
@@ -1216,7 +1216,7 @@
     {
         "BaseClass"                     "ability_lua"
         "ScriptFile"                    "heroes/mirana_arrow_lua.lua"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
         "MaxLevel"                      "1"
         "AbilityTextureName"            "mirana_arrow"
@@ -1698,7 +1698,7 @@
         {
             "damage"            "100.0"
             "activation_radius"            "50"
-            "damage_radius"            "350"
+            "damage_radius"            "100"
         }
     }
 
