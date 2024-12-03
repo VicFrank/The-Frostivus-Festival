@@ -399,7 +399,7 @@
 
         "AbilityValues"
         {
-            "distance"              "30"
+            "distance"              "35"
         }
     }
 
@@ -1151,8 +1151,8 @@
 
         "AbilityValues"
         {
-            "spawn_delay"       "7.0"
-            "num_to_spawn"     "4"
+            "spawn_delay"       "4.0"
+            "num_to_spawn"     "3"
             "max_spawned"     "60"
         }
     }
@@ -1236,7 +1236,7 @@
 
         "AbilityValues"
         {
-            "arrow_speed"       "857.0"
+            "arrow_speed"       "1200.0"
             "arrow_width"       "115"
             "arrow_range"       "3000"
             "stun_duration"     "2.0"

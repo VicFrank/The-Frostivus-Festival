@@ -37,9 +37,9 @@ function FireTrapGame:GameStart()
 	local patternTable = {
 		{3},
 		{2},
+		{1,3},
 		{1,1,3},
 		{1,1,1,3},
-		{1,1,1,3,1,3}
 	}
 
 	local trapTable = {}

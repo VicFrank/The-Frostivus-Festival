@@ -18,7 +18,7 @@ function TauntGame:GameStart()
 	self:SpawnVisionDummies(spawner)
 	
 	local maxDistanceFromSpawner = 1800
-	local delay = 5.0
+	local delay = 3.0
 	Timers:CreateTimer(1,
     function()
 		if not self.isRunning then return end

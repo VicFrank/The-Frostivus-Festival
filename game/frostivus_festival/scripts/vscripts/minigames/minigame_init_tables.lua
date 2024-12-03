@@ -33,20 +33,20 @@ require('minigames/timbersaw_game')
 
 
 tMINIGAME_INIT_TABLE = {
-	-- snowball_game = {
-	-- 	name = "Snowball",
-	-- 	description = "",
-	-- 	hero = {
-	-- 		heroName = "npc_dota_hero_tusk",
-	-- 		health = 100,
-	-- 		mana = 0,
-	-- 		abilities = {
-	-- 			"snowball_lua",
-	-- 		},			
-	-- 	},
-	-- 	arena = "snow_medium",
-	-- 	game = SnowballGame:new{duration=-1},
-	-- },
+	snowball_game = {
+		name = "Snowball",
+		description = "Become the largest snowball",
+		hero = {
+			heroName = "npc_dota_hero_tusk",
+			health = 100,
+			mana = 0,
+			abilities = {
+				"snowball_lua",
+			},			
+		},
+		arena = "snow_medium",
+		game = SnowballGame:new{duration=-1},
+	},
 
 	taunt_game = {
 		music = DOTA_MUSIC_STATUS_EXPLORATION,
@@ -62,7 +62,7 @@ tMINIGAME_INIT_TABLE = {
 			},			
 		},
 		arena = "snow_small",
-		game = TauntGame:new{duration=120},
+		game = TauntGame:new{duration=60},
 	},
 
 	suicidal_pudge_game = {
@@ -81,7 +81,7 @@ tMINIGAME_INIT_TABLE = {
 			},			
 		},
 		arena = "snow_small",
-		game = SuicidalPudgeGame:new{duration=180},
+		game = SuicidalPudgeGame:new{duration=120},
 	},
 
 	chain_frost_game = {
@@ -118,7 +118,7 @@ tMINIGAME_INIT_TABLE = {
 			},			
 		},
 		arena = "snow_small",
-		game = RemoteMineGame:new{duration=120},
+		game = RemoteMineGame:new{duration=90},
 	},
 
 	zuus_race = {
@@ -196,7 +196,7 @@ tMINIGAME_INIT_TABLE = {
 			},			
 		},
 		arena = "snow_arena",
-		game = PudgeWars:new{duration=120},
+		game = PudgeWars:new{duration=90},
 	},
 
 	-- shadowfiend_wars = {
@@ -286,7 +286,7 @@ tMINIGAME_INIT_TABLE = {
 			},
 		},
 		arena = "snow_arena",
-		game = DrowArcherGame:new{duration=180},
+		game = DrowArcherGame:new{duration=90},
 	},
 
 	ogre_seal_game = {
@@ -337,14 +337,14 @@ tMINIGAME_INIT_TABLE = {
 			heroName = "npc_dota_hero_weaver",
 			health = 100,
 			mana = 100,
-			moveSpeed = 200,
+			moveSpeed = 250,
 			vision = 9000,
 			abilities = {
 				"shukuchi_lua"
 			},
 		},
 		arena = "snow_race",
-		game = BloodseekerGame:new{duration=120},
+		game = BloodseekerGame:new{duration=90},
 	},
 
 	spirit_breaker_race = {
@@ -381,7 +381,7 @@ tMINIGAME_INIT_TABLE = {
 			},
 		},
 		arena = "snow_arena",
-		game = ZombieGame:new{duration=180},
+		game = ZombieGame:new{duration=90},
 	},
 
 	ursa_game = {
@@ -392,7 +392,7 @@ tMINIGAME_INIT_TABLE = {
 		singlePlayer = true,
 		hero = {
 			heroName = "npc_dota_hero_ursa",
-			health = 1000,
+			health = 600,
 			healthRegen = 1.35,
 			mana = 100,
 			manaRegen = .33,
@@ -403,7 +403,7 @@ tMINIGAME_INIT_TABLE = {
 			},
 		},
 		arena = "snow_small",
-		game = UrsaGame:new{duration=120},
+		game = UrsaGame:new{duration=60},
 	},
 
 	invoker_leader_game = {
@@ -427,7 +427,7 @@ tMINIGAME_INIT_TABLE = {
 			},
 		},
 		arena = "snow_stage",
-		game = InvokerLeaderGame:new{duration=120},
+		game = InvokerLeaderGame:new{duration=90},
 	},
 
 	furion_teleport_game = {
@@ -445,7 +445,7 @@ tMINIGAME_INIT_TABLE = {
 			},
 		},
 		arena = "snow_large_center",
-		game = FurionTeleportGame:new{duration=75},
+		game = FurionTeleportGame:new{duration=60},
 	},
 
 	spirit_breaker_game = {
@@ -464,7 +464,7 @@ tMINIGAME_INIT_TABLE = {
 			},
 		},
 		arena = "snow_tiny",
-		game = SpiritBreakerGame:new{duration=120},
+		game = SpiritBreakerGame:new{duration=90},
 	},
 
 	templar_game = {
@@ -518,7 +518,7 @@ tMINIGAME_INIT_TABLE = {
 			},			
 		},
 		arena = "snow_medium",
-		game = EnchantressGame:new{duration=75},
+		game = EnchantressGame:new{duration=60},
 	},
 
 	techies_sumo_game = {
@@ -536,7 +536,7 @@ tMINIGAME_INIT_TABLE = {
 			},
 		},
 		arena = "snow_tiny",
-		game = TechiesSumoGame:new{duration=120},
+		game = TechiesSumoGame:new{duration=90},
 	},
 
 	fire_trap_game = {
@@ -553,7 +553,7 @@ tMINIGAME_INIT_TABLE = {
 			},
 		},
 		arena = "snow_race",
-		game = FireTrapGame:new{duration=120},
+		game = FireTrapGame:new{duration=90},
 	},
 
 	-- storegga_game = {
@@ -585,7 +585,7 @@ tMINIGAME_INIT_TABLE = {
 			},
 		},
 		arena = "snow_tiny",
-		game = AntimageGame:new{duration=120},
+		game = AntimageGame:new{duration=90},
 	},
 
 	timbersaw_game = {
@@ -605,7 +605,7 @@ tMINIGAME_INIT_TABLE = {
 			},
 		},
 		arena = "snow_large_center",
-		game = TimbersawGame:new{duration=75},
+		game = TimbersawGame:new{duration=60},
 	},
 }
 

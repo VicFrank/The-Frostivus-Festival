@@ -105,7 +105,7 @@ function GameMode:OnAllPlayersLoaded()
       GameMode:StartRandomGame()
     else
       -- GameMode:StartRandomGame()
-      GameMode:StartGameByName('mirana_arrow_game')
+      GameMode:StartGameByName('snowball_game')
     end
   end)
 end

@@ -37,7 +37,7 @@ function NecroGame:GameStart()
 		if not self.isRunning then return end
 		self:SpawnRuneUniform("item_rune_heal", duration)
 		delay = delay + .2
-		return RandomFloat(delay, delay + .5)
+		return RandomFloat(delay, delay + .4)
     end)
 
 	-- Override event function here

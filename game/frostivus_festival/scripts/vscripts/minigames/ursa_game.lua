@@ -22,17 +22,19 @@ function UrsaGame:GameStart()
 
 	_G.GameMode.OnEntityKilled = function (empty, keys)
 		local killedUnit = EntIndexToHScript( keys.entindex_killed )
+		print("OnEntityKilled", killedUnit:GetUnitName())
 		if killedUnit:GetUnitName() == "npc_dota_hero_ursa" then
 			-- If everyone is dead, end the round
-			local enemies = FindUnitsInRadius(DOTA_TEAM_NEUTRALS,
-                                      		 boss:GetAbsOrigin(),
-                                      		 nil,
-                                      		 5000,
-                                      		 DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                      		 DOTA_UNIT_TARGET_HERO,
-                                      		 DOTA_UNIT_TARGET_FLAG_NONE,
-                                      		 FIND_ANY_ORDER,
-                                      		 false)
+			local enemies = FindUnitsInRadius(
+				DOTA_TEAM_NEUTRALS,
+				boss:GetAbsOrigin(),
+				nil,
+				5000,
+				DOTA_UNIT_TARGET_TEAM_ENEMY,
+				DOTA_UNIT_TARGET_HERO,
+				DOTA_UNIT_TARGET_FLAG_NONE,
+				FIND_ANY_ORDER,
+				false)
 			if #enemies == 0 then
 				self:GameEnd()
 			end

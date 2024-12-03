@@ -16,9 +16,9 @@ function SnowballGame:GameStart()
 	local spawner = Entities:FindByName(nil, "snow_medium_center")
 	self:SpawnVisionDummies(spawner)
 
-	for i=1,10 do
-		CreateTempTree( spawner:GetAbsOrigin() + RandomVector(800), 90 )
-	end
+	GameMode:DoToAllHeroes(function(hero)
+		hero:FindAbilityByName("snowball_lua"):OnSpellStart()
+	end)
 end
 
 function SnowballGame:GameEnd()

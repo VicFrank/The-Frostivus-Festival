@@ -1,209 +1,214 @@
-LinkLuaModifier("modifier_snowball", "heroes/snowball.lua", LUA_MODIFIER_MOTION_NONE)
-
 snowball_lua = class({})
 
 function snowball_lua:OnSpellStart()
     local caster = self:GetCaster()
     local ability = self
-    local sound = "Hero_Tusk.Snowball.Cast"
 
-    EmitSoundOn(sound, caster)
+    caster:EmitSound("Hero_Tusk.Snowball.Cast")
 
-    local dummy = CreateUnitByName("npc_dummy_unit", caster:GetAbsOrigin() + RandomVector(200), true, caster, caster:GetOwner(), caster:GetTeam())
-    -- dummy:AddNewModifier(caster, ability, "modifier_snowball", {duration = 20})
     local casterAngles = caster:GetAngles()
-    dummy:SetAngles(casterAngles.x, casterAngles.y, casterAngles.z)
-    dummy:AddNewModifier(caster, ability, "modifier_sled_penguin_movement", {})
-    dummy:SetControllableByPlayer(caster:GetPlayerID(), false)
-    dummy:SetOwner(caster)
-
-    -- PlayerResource:SetOverrideSelectionEntity(caster:GetPlayerOwnerID(), dummy)
-
-    -- caster:AddNewModifier(caster, ability, "modifier_hidden_lua", {duration = 5})
+    caster:SetAngles(casterAngles.x, casterAngles.y, casterAngles.z)
+    caster:AddNewModifier(caster, ability, "modifier_sliding", {})
     -- caster:AddNoDraw()
-    -- caster:RemoveNoDraw()
 end
 
-modifier_snowball = class({})
+LinkLuaModifier("modifier_sliding", "heroes/snowball", LUA_MODIFIER_MOTION_HORIZONTAL)
 
-function modifier_snowball:OnCreated()
-    local parent = self:GetParent()
-    local ability = self:GetAbility()
-    -- local particle = "particles/units/heroes/hero_tusk/tusk_snowball.vpcf"
+modifier_sliding = class({})
 
-    -- local particle_fx = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, parent)
-    -- ParticleManager:SetParticleControlEnt(particle_fx, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-    -- self:AddParticle(particle_fx, false, false, -1, false, false)
-
-    if IsServer() then
-        self:StartIntervalThink(.03)
-    end
-end
-
-function modifier_snowball:OnIntervalThink()
-    local parent = self:GetParent()
-    local ability = self:GetAbility()
-    local angles = parent:GetAngles()
-    local forwardVec = parent:GetForwardVector()
-
-    local speed = 10
-
-    if IsServer() then
-        parent:SetAngles(angles.x + speed,
-                         angles.y,
-                         angles.z)
-    end
-end
-function modifier_snowball:OnDestroy()
-    local parent = self:GetParent()
-    local ability = self:GetAbility()
-
-    if IsServer() then
-        ForceKill(parent)
-    end
-end
-
-function modifier_snowball:DeclareFunctions()
-    local funcs = {
-        MODIFIER_PROPERTY_MODEL_CHANGE,
-        MODIFIER_PROPERTY_VISUAL_Z_DELTA,
-    }
-    return funcs
-end
-
-function modifier_snowball:GetVisualZDelta()
-    return 20
-end
-
-function modifier_snowball:GetModifierModelChange()
+function modifier_sliding:GetModifierModelChange()
     return "models/particle/snowball.vmdl"
 end
 
-function modifier_snowball:CheckState()
+function modifier_sliding:CheckState()
     local funcs = {
+        [MODIFIER_STATE_DISARMED] = true,
         [MODIFIER_STATE_NO_HEALTH_BAR] = true,
         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     }
     return funcs
 end
 
-LinkLuaModifier("modifier_sled_penguin_movement", "heroes/snowball", LUA_MODIFIER_MOTION_HORIZONTAL)
-
-modifier_sled_penguin_movement = class({})
-
-function modifier_sled_penguin_movement:GetModifierModelChange()
-    return "models/particle/snowball.vmdl"
+function modifier_sliding:GetVisualZDelta()
+    return (self.baseRadius * self:GetStackCount()) or 20
 end
 
-function modifier_sled_penguin_movement:CheckState()
-    local funcs = {
-        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    }
-    return funcs
+function modifier_sliding:IsHidden()
+    return false
 end
 
-function modifier_sled_penguin_movement:GetVisualZDelta()
-    return 20
-end
-
-function modifier_sled_penguin_movement:IsHidden()
-    return true
-end
-
-function modifier_sled_penguin_movement:OnCreated( kv )
+function modifier_sliding:OnCreated(kv)
+    self.baseSpeed = 50
+    self.baseScale = 0.2
+    
+    self.maxSpeed = 400
+    self.speedStep = 8
+    self.currentSpeed = 50
+    self.scale = 0.2
+    self.hitRadius = 50
+    self.turnRate = 120
+    self.baseRadius = 50
+    
     if IsServer() then
-        self.max_sled_speed = 400
-        self.speed_step = 8
-        self.nCurSpeed = 50
-        self.scale = .2
-        self.flDesiredYaw = self:GetParent():GetAnglesAsVector().y
-        if self:ApplyHorizontalMotionController() == false then 
-            self:Destroy()
-            return
-        end
-    end
-end
+        self.targetAngle = self:GetParent():GetAnglesAsVector().y
+        self.ricocheting = false
 
-function modifier_sled_penguin_movement:OnDestroy()
-    if IsServer() then
-        self:GetParent():RemoveHorizontalMotionController( self )
-        EmitSoundOn( "Hero_Tusk.IceShards.Penguin", self:GetParent() )
-        ForceKill(self:GetParent())
-    end
-end
-
-function modifier_sled_penguin_movement:DeclareFunctions()
-    local funcs = 
-    {
-        MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
-        MODIFIER_EVENT_ON_ORDER,
-        MODIFIER_PROPERTY_DISABLE_TURNING,
-
-        MODIFIER_PROPERTY_MODEL_CHANGE,
-        MODIFIER_PROPERTY_VISUAL_Z_DELTA,
-    }
-    return funcs
-end
-
-function modifier_sled_penguin_movement:UpdateHorizontalMotion( me, dt )
-    if IsServer() then
-        self.scale = self.scale + .001
+        self:SetStackCount(self.scale)
         self:GetParent():SetModelScale(self.scale)
 
-        local parent = self:GetParent()
-        local flTurnAmount = 0.0
-        local curAngles = parent:GetAngles()
-        
-        local flAngleDiff = UTIL_AngleDiff( self.flDesiredYaw, curAngles.y )
-        
-        local flTurnRate = 100
-        -- local flTurnRateMod = 25 * self.nCurSpeed / self.max_sled_speed 
-        -- flTurnRate = flTurnRate - flTurnRateMod
-        flTurnAmount = flTurnRate * dt
-        flTurnAmount = math.min( flTurnAmount, math.abs( flAngleDiff ) )
-    
-        if flAngleDiff < 0.0 then
-            flTurnAmount = flTurnAmount * -1
-        end
+        self:GetParent():EmitSound("Hero_Tusk.Snowball.Loop")
 
-        if flAngleDiff ~= 0.0 then
-            curAngles.y = curAngles.y + flTurnAmount
-            me:SetAbsAngles( curAngles.x, curAngles.y, curAngles.z )
-        end
+        self.snowballPfx = ParticleManager:CreateParticle("particles/units/heroes/hero_tusk/tusk_snowball.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        ParticleManager:SetParticleControl(self.snowballPfx, 0, self:GetParent():GetOrigin())
+        ParticleManager:SetParticleControl(self.snowballPfx, 2, Vector(self.currentSpeed, 0, 0))
+        ParticleManager:SetParticleControl(self.snowballPfx, 3, Vector(self.baseRadius, self.baseRadius, self.baseRadius))
 
-        local vNewPos = parent:GetOrigin() + parent:GetForwardVector() * ( dt * self.nCurSpeed )
-        if GridNav:CanFindPath( me:GetOrigin(), vNewPos ) == false then
-            self:Destroy()
+        if self:ApplyHorizontalMotionController() == false then 
+            print("Couldn't apply motion controller")
+            self:StopRolling()
             return
         end
-        me:SetOrigin( vNewPos )
-        self.nCurSpeed = math.min( self.nCurSpeed + self.speed_step, self.max_sled_speed )
+
+        self:StartIntervalThink(FrameTime())
     end
 end
 
-function modifier_sled_penguin_movement:OnOrder( params )
+function modifier_sliding:DeclareFunctions()
+    local funcs = 
+    {
+        MODIFIER_PROPERTY_MODEL_CHANGE,
+        MODIFIER_EVENT_ON_ORDER,
+        MODIFIER_PROPERTY_DISABLE_TURNING,
+        MODIFIER_PROPERTY_VISUAL_Z_DELTA,
+    }
+    return funcs
+end
+
+function modifier_sliding:GetModifierDisableTurning()
+    return 1
+end
+
+function modifier_sliding:SetTarget(target)
+    if (target) then
+        self.targetAngle = VectorToAngles(target - self:GetParent():GetOrigin()).y
+    else
+        self.targetAngle = self:GetParent():GetAngles().y
+    end
+end
+
+function modifier_sliding:StopRolling()
+    self:GetParent():RemoveHorizontalMotionController(self)
+    self.currentlyInterrupted = true
+end
+
+function modifier_sliding:UpdateHorizontalMotion(me, dt)
+    if not IsServer() then return end
+    if self.currentlyInterrupted then return end
+
+    local parent = self:GetParent()
+    local turnAmount = 0.0
+    local currentAngles = parent:GetAngles()
+
+    if parent:IsStunned() or parent:IsRooted() then
+        self:StopRolling()
+        return
+    end
+
+    local origin = me:GetOrigin()
+    
+    self.scale = self.scale + 0.001
+    self:GetParent():SetModelScale(self.scale)
+    self:SetStackCount(self.scale)
+
+    local hitRadius = (self.baseRadius * self.scale) / 2
+    local forwardPosition = origin + me:GetForwardVector() * hitRadius
+    local blockers = Entities:FindAllByClassnameWithin("npc_dota_thinker", forwardPosition, hitRadius)
+    local maybeBlocker = GetRandomTableElement(blockers)
+   
+    if GridNav:IsTraversable(forwardPosition) == false or (maybeBlocker and maybeBlocker:IsBaseNPC() and maybeBlocker:IsPhantomBlocker()) then
+        self.ricocheting = true
+        self:StopRolling()
+
+        parent:EmitSound("Hero_Tusk.Snowball.ProjectileHit")
+
+        Timers:CreateTimer(0.2, function()
+            local angle = parent:GetAnglesAsVector()
+            parent:SetAbsAngles(angle.x, angle.y + 180, angle.z)
+
+            Timers:CreateTimer(0.2, function()
+                self.ricocheting = false
+            end)
+        end)
+
+        return
+    end
+
+    -- Turn Logic
+    local parentAngle = parent:GetAnglesAsVector()
+    local angleDiff = AngleDiff(self.targetAngle, parentAngle.y)
+    -- min of 10 and max of 90
+    local turnRate = math.min(1.1 * self.turnRate * dt, math.abs(angleDiff))
+    parent:SetAbsAngles(parentAngle.x, parentAngle.y + turnRate * Sign(angleDiff), parentAngle.z)
+
+    me:SetOrigin(origin + me:GetForwardVector() * self.currentSpeed * dt)
+
+    self.scale = self.scale + 0.001
+    self.currentSpeed = math.min(self.currentSpeed + self.speedStep, self.maxSpeed)
+
+    self:UpdateSnowballParticle()
+end
+
+function modifier_sliding:OnIntervalThink()
+    if (self.currentlyInterrupted) then
+        local parent = self:GetParent()
+        local stillInterrupted =
+            parent:IsStunned() or
+            parent:IsRooted() or
+            parent:IsCurrentlyHorizontalMotionControlled() or
+            self.ricocheting
+
+        if not stillInterrupted and self:ApplyHorizontalMotionController() then
+            self.currentlyInterrupted = false
+        end
+    end
+end
+
+function modifier_sliding:UpdateSnowballParticle()
     if IsServer() then
-        local hOrderedUnit = params.unit 
-        local hTargetUnit = params.target
-        local nOrderType = params.order_type
-        if nOrderType == DOTA_UNIT_ORDER_MOVE_TO_POSITION or nOrderType == DOTA_UNIT_ORDER_ATTACK_MOVE then
-            if hOrderedUnit == self:GetParent() then
-                local vDir = params.new_pos - self:GetParent():GetOrigin()
-                vDir.z = 0
-                vDir = vDir:Normalized()
-                local angles = VectorAngles( vDir )
-                local hBuff = self:GetParent():FindModifierByName( "modifier_sled_penguin_movement" )
-                if hBuff ~= nil then
-                    hBuff.flDesiredYaw = angles.y
-                end 
+        local parent = self:GetParent()
+        local radius = self.scale * self.baseRadius
+        ParticleManager:SetParticleControl(self.snowballPfx, 0, self:GetParent():GetOrigin())
+        ParticleManager:SetParticleControl(self.snowballPfx, 2, Vector(self.currentSpeed, 0, 0))
+        ParticleManager:SetParticleControl(self.snowballPfx, 1, parent:GetAbsOrigin() + parent:GetForwardVector() * 100)
+        ParticleManager:SetParticleControl(self.snowballPfx, 3, Vector(radius, radius, radius))
+    end
+end
+
+function modifier_sliding:OnOrder(params)
+    if IsServer() then
+        if params.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or params.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE then
+            if params.unit == self:GetParent() then
+                local direction = params.new_pos - self:GetParent():GetOrigin()
+                direction.z = 0
+                direction = direction:Normalized()
+                local angles = VectorAngles(direction)
+                self.targetAngle = angles.y
             end
         end
-
     end
     return 0
 end
 
-function modifier_sled_penguin_movement:GetModifierDisableTurning( params )
+function modifier_sliding:GetModifierDisableTurning(params)
     return 1
+end
+
+function modifier_sliding:OnHorizontalMotionInterrupted(prams)
+    self:StopRolling()
+end
+
+function modifier_sliding:OnDestroy()
+    if not IsServer() then return end
+    self:GetParent():StopSound("Hero_Tusk.Snowball.Loop")
+    self:GetParent():RemoveNoDraw()
 end

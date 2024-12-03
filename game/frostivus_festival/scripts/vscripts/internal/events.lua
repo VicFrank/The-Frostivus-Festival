@@ -52,6 +52,7 @@ end
 
 -- An entity died
 function GameMode:_OnEntityKilled( keys )
+  _G.GameMode:OnEntityKilled( keys )
 end
 
 function GameMode:_OnEntityHurt( keys )
