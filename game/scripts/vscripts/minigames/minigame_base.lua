@@ -226,15 +226,16 @@ function MiniGame:CheckForLoneSurvivor()
 end
 
 function MiniGame:FindAllAliveHeroes()
-	local heroes = FindUnitsInRadius(DOTA_TEAM_NEUTRALS,
-                                     Vector(0,0,0),
-                                     nil,
-                                     2*4000^2,
-                                     DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                     DOTA_UNIT_TARGET_HERO,
-                                     DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
-                                     FIND_ANY_ORDER,
-                                     false)
+	local heroes = FindUnitsInRadius(
+		DOTA_TEAM_NEUTRALS,
+		Vector(0,0,0),
+		nil,
+		2*4000^2,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
+		FIND_ANY_ORDER,
+		false)
 
 	return heroes
 end
@@ -248,7 +249,7 @@ function MiniGame:SpawnUnit(sUnitName, nTeam, hSpawner, nMaxDistanceFromSpawner)
 
 	self:LevelAllAbilities(unit)
 
-    return unit
+	return unit
 end
 
 function MiniGame:SpawnUnitRandomUniform(unitName, team)

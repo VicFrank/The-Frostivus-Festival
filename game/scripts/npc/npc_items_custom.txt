@@ -5,7 +5,6 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-        "ID"              "1835"
         "BaseClass"         "item_lua"
         "AbilityTextureName"        "item_present"
         "ScriptFile"          "libraries/abilities/item_containers_lua_pack.lua"
@@ -33,7 +32,6 @@
 
     "item_rune_heal"
     {
-        "ID"                        "2000"
         "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "BaseClass"                 "item_datadriven"
         "ItemShareability"          "ITEM_FULLY_SHAREABLE"
@@ -97,7 +95,6 @@
     
     "item_rune_haste"
     {
-        "ID"                        "2001"
         "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "BaseClass"                  "item_datadriven"
         "ItemShareability"          "ITEM_FULLY_SHAREABLE"
@@ -160,7 +157,6 @@
 
     "item_rune_full_heal"
     {
-        "ID"                        "2002"
         "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "BaseClass"                 "item_datadriven"
         "ItemShareability"          "ITEM_FULLY_SHAREABLE"
@@ -224,7 +220,6 @@
 
     "item_rune_double_damage"
     {
-        "ID"                        "2003"
         "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "BaseClass"                  "item_datadriven"
         "ItemShareability"          "ITEM_FULLY_SHAREABLE"
@@ -287,7 +282,6 @@
 
     "item_bag_of_gold"
     {
-        "ID"                            "2004"
         "AbilityName"                   "item_bag_of_gold"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "Model"                         "models/props_gameplay/gold_coin001.vmdl"
@@ -332,7 +326,6 @@
 
     "item_blink_lua"
     {
-        "ID"                            "2007"
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "item_blink"
         "FightRecapLevel"               "1"
